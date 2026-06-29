@@ -1,0 +1,12 @@
+{
+  "name": "cqai-practice-loops",
+  "owner": { "name": "Clinical Quality Artificial Intelligence" },
+  "metadata": { "description": "Safe, governed AI practice loops for nursing." },
+  "plugins": [
+    {
+      "name": "practice-loops",
+      "source": "./plugins/practice-loops",
+      "description": "One skill per nursing Practice Loop: trigger, task, NMC standard, verification, iteration, human sign-off, and an audit trail."
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "name": "practice-loops",
+  "description": "Safe, governed AI practice loops for nursing (placement support, preceptorship, clinical supervision, EDI, teaching, action tracking).",
+  "version": "0.1.0",
+  "author": { "name": "Clinical Quality Artificial Intelligence" },
+  "homepage": "https://github.com/Clinical-Quality-Artifical-Intelligence/practice-loops",
+  "repository": "https://github.com/Clinical-Quality-Artifical-Intelligence/practice-loops",
+  "license": "Apache-2.0"
+}
