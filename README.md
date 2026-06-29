@@ -6,6 +6,7 @@
 
 *From the [Clinical Quality Artificial Intelligence (CQAI)](https://github.com/Clinical-Quality-Artifical-Intelligence) “Nurse as Citizen Developer” movement.*
 
+[![validate](https://github.com/Clinical-Quality-Artifical-Intelligence/practice-loops/actions/workflows/validate.yml/badge.svg)](https://github.com/Clinical-Quality-Artifical-Intelligence/practice-loops/actions/workflows/validate.yml)
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache%202.0-1d9e75.svg)](LICENSE)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-plugin-da7756.svg)](https://code.claude.com/docs/en/plugins)
 ![Loops](https://img.shields.io/badge/loops-6-026a76.svg)
