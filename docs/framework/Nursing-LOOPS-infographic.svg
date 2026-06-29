@@ -1,0 +1,71 @@
+<svg viewBox="0 0 680 360" xmlns="http://www.w3.org/2000/svg" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif" role="img">
+<title>Practice loops for nursing — everything you need to know</title>
+<desc>A nursing adaptation of the LOOPS framework: the old prompt way on the left, the six-stage practice loop in the centre, human sign-off on the right, and the hidden components a loop needs along the bottom.</desc>
+<defs>
+<marker id="ah" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#5F5E5A"/></marker>
+</defs>
+<rect x="0" y="0" width="680" height="360" fill="#F7F6F2"/>
+<text x="340" y="32" text-anchor="middle" font-size="24" font-weight="500" fill="#2C2C2A">Practice loops for nursing</text>
+<text x="340" y="53" text-anchor="middle" font-size="13" fill="#5F5E5A">everything you need to know — and what nobody tells you</text>
+
+<rect x="8" y="74" width="150" height="156" rx="12" fill="#F1EFE8" stroke="#888780"/>
+<text x="83" y="96" text-anchor="middle" font-size="14" font-weight="500" fill="#2C2C2A">the prompt</text>
+<text x="83" y="111" text-anchor="middle" font-size="10.5" fill="#5F5E5A">the slow way</text>
+<rect x="22" y="120" width="122" height="26" rx="6" fill="#FFFFFF" stroke="#B4B2A9"/>
+<text x="83" y="137" text-anchor="middle" font-size="12" fill="#2C2C2A">ask</text>
+<rect x="22" y="156" width="122" height="26" rx="6" fill="#FFFFFF" stroke="#B4B2A9"/>
+<text x="83" y="173" text-anchor="middle" font-size="12" fill="#2C2C2A">answer</text>
+<rect x="22" y="192" width="122" height="26" rx="6" fill="#FFFFFF" stroke="#B4B2A9"/>
+<text x="83" y="209" text-anchor="middle" font-size="12" fill="#2C2C2A">stop</text>
+<line x1="83" y1="147" x2="83" y2="155" stroke="#5F5E5A" stroke-width="1.4" marker-end="url(#ah)"/>
+<line x1="83" y1="183" x2="83" y2="191" stroke="#5F5E5A" stroke-width="1.4" marker-end="url(#ah)"/>
+
+<rect x="522" y="74" width="150" height="156" rx="12" fill="#FAECE7" stroke="#D85A30"/>
+<text x="597" y="96" text-anchor="middle" font-size="14" font-weight="500" fill="#712B13">human sign-off</text>
+<text x="597" y="111" text-anchor="middle" font-size="10.5" fill="#993C1D">you stay accountable</text>
+<rect x="536" y="120" width="122" height="26" rx="6" fill="#FFFFFF" stroke="#F0997B"/>
+<text x="597" y="137" text-anchor="middle" font-size="12" fill="#712B13">review</text>
+<rect x="536" y="156" width="122" height="26" rx="6" fill="#FFFFFF" stroke="#F0997B"/>
+<text x="597" y="173" text-anchor="middle" font-size="12" fill="#712B13">decide</text>
+<rect x="536" y="192" width="122" height="26" rx="6" fill="#FFFFFF" stroke="#F0997B"/>
+<text x="597" y="209" text-anchor="middle" font-size="12" fill="#712B13">accountable</text>
+<line x1="597" y1="147" x2="597" y2="155" stroke="#5F5E5A" stroke-width="1.4" marker-end="url(#ah)"/>
+<line x1="597" y1="183" x2="597" y2="191" stroke="#5F5E5A" stroke-width="1.4" marker-end="url(#ah)"/>
+
+<rect x="170" y="78" width="104" height="42" rx="8" fill="#E1F5EE" stroke="#1D9E75"/>
+<text x="222" y="104" text-anchor="middle" font-size="13" fill="#0F6E56">trigger</text>
+<rect x="284" y="78" width="104" height="42" rx="8" fill="#E1F5EE" stroke="#1D9E75"/>
+<text x="336" y="104" text-anchor="middle" font-size="13" fill="#0F6E56">task</text>
+<rect x="398" y="78" width="104" height="42" rx="8" fill="#E1F5EE" stroke="#1D9E75"/>
+<text x="450" y="104" text-anchor="middle" font-size="13" fill="#0F6E56">standard</text>
+<rect x="228" y="190" width="104" height="42" rx="8" fill="#E1F5EE" stroke="#1D9E75"/>
+<text x="280" y="216" text-anchor="middle" font-size="13" fill="#0F6E56">iteration</text>
+<rect x="348" y="190" width="104" height="42" rx="8" fill="#E1F5EE" stroke="#1D9E75"/>
+<text x="400" y="216" text-anchor="middle" font-size="13" fill="#0F6E56">verification</text>
+
+<text x="336" y="150" text-anchor="middle" font-size="22" font-weight="500" fill="#04342C">practice loops</text>
+<text x="336" y="168" text-anchor="middle" font-size="10.5" fill="#0F6E56">assess · plan · intervene · evaluate · adjust</text>
+
+<line x1="274" y1="99" x2="283" y2="99" stroke="#5F5E5A" stroke-width="1.4" marker-end="url(#ah)"/>
+<line x1="388" y1="99" x2="397" y2="99" stroke="#5F5E5A" stroke-width="1.4" marker-end="url(#ah)"/>
+<path d="M450,120 C 472,150 432,168 401,189" fill="none" stroke="#5F5E5A" stroke-width="1.4" marker-end="url(#ah)"/>
+<line x1="348" y1="211" x2="333" y2="211" stroke="#5F5E5A" stroke-width="1.4" marker-end="url(#ah)"/>
+<path d="M279,190 C 248,168 208,150 221,121" fill="none" stroke="#5F5E5A" stroke-width="1.4" marker-end="url(#ah)"/>
+<line x1="158" y1="99" x2="168" y2="99" stroke="#5F5E5A" stroke-width="1.4" marker-end="url(#ah)"/>
+<path d="M452,211 C 492,206 502,172 520,162" fill="none" stroke="#5F5E5A" stroke-width="1.4" marker-end="url(#ah)"/>
+
+<line x1="8" y1="248" x2="672" y2="248" stroke="#D3D1C7" stroke-width="1"/>
+<text x="340" y="268" text-anchor="middle" font-size="13" fill="#5F5E5A">what nobody tells you a loop needs</text>
+<rect x="8" y="278" width="126" height="34" rx="8" fill="#EEEDFE" stroke="#534AB7"/>
+<text x="71" y="299" text-anchor="middle" font-size="11.5" fill="#26215C">memory on disk</text>
+<rect x="140" y="278" width="126" height="34" rx="8" fill="#EEEDFE" stroke="#534AB7"/>
+<text x="203" y="299" text-anchor="middle" font-size="11.5" fill="#26215C">a separate verifier</text>
+<rect x="272" y="278" width="126" height="34" rx="8" fill="#EEEDFE" stroke="#534AB7"/>
+<text x="335" y="299" text-anchor="middle" font-size="11.5" fill="#26215C">the NMC standard</text>
+<rect x="404" y="278" width="126" height="34" rx="8" fill="#EEEDFE" stroke="#534AB7"/>
+<text x="467" y="299" text-anchor="middle" font-size="11.5" fill="#26215C">a stop condition</text>
+<rect x="536" y="278" width="126" height="34" rx="8" fill="#EEEDFE" stroke="#534AB7"/>
+<text x="599" y="299" text-anchor="middle" font-size="11.5" fill="#26215C">equity &amp; audit</text>
+
+<text x="340" y="340" text-anchor="middle" font-size="15" font-weight="500" fill="#2C2C2A">AI supports the workflow. The professional owns the judgement.</text>
+</svg>
