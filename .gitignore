@@ -1,0 +1,11 @@
+# Practice Loop run artifacts (local; may contain working clinical/education data)
+practice-loop-audit/
+
+# macOS
+.DS_Store
+._*
+
+# Editor / tooling
+*.swp
+.idea/
+.vscode/
