@@ -44,7 +44,15 @@ if skills_dir.exists():
                 check("practice-loop-audit" in text, f"{sk.name}: SKILL.md must write to ./practice-loop-audit/")
                 check("DRAFT" in text, f"{sk.name}: SKILL.md must mark output as DRAFT")
 
-EXPECTED = {"practice-loop-method", "placement-support"}
+EXPECTED = {
+    "practice-loop-method",
+    "placement-support",
+    "preceptorship",
+    "clinical-supervision",
+    "edi-intelligence",
+    "teaching",
+    "action-tracking",
+}
 present = {p.name for p in skills_dir.iterdir() if p.is_dir()} if skills_dir.exists() else set()
 missing = EXPECTED - present
 check(not missing, f"missing required skills: {sorted(missing)}")
