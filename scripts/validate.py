@@ -52,6 +52,11 @@ EXPECTED = {
     "edi-intelligence",
     "teaching",
     "action-tracking",
+    "revalidation",
+    "reflective-practice",
+    "incident-reflection",
+    "reasonable-adjustments-passport",
+    "policy-to-practice",
 }
 present = {p.name for p in skills_dir.iterdir() if p.is_dir()} if skills_dir.exists() else set()
 missing = EXPECTED - present

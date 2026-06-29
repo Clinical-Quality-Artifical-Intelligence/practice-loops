@@ -9,7 +9,7 @@
 [![validate](https://github.com/Clinical-Quality-Artifical-Intelligence/practice-loops/actions/workflows/validate.yml/badge.svg)](https://github.com/Clinical-Quality-Artifical-Intelligence/practice-loops/actions/workflows/validate.yml)
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache%202.0-1d9e75.svg)](LICENSE)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-plugin-da7756.svg)](https://code.claude.com/docs/en/plugins)
-![Loops](https://img.shields.io/badge/loops-6-026a76.svg)
+![Loops](https://img.shields.io/badge/loops-11-026a76.svg)
 ![Status](https://img.shields.io/badge/version-0.1.0-534ab7.svg)
 ![Human sign‑off](https://img.shields.io/badge/human%20sign--off-required-d85a30.svg)
 
@@ -45,6 +45,11 @@ It maps directly onto the nursing process you already use: **Assess → Plan →
 | ⚖️ `edi-intelligence` | aggregate workforce metrics | equity briefing using rate-based fair comparison |
 | 📚 `teaching` | a topic + audience level | session resource mapped to NMC proficiencies, with inclusive adjustments |
 | ✅ `action-tracking` | a meeting transcript | governance-ready action log; risks flagged for human grading |
+| 🔄 `revalidation` | revalidation evidence | portfolio-readiness summary against the NMC requirements, with gaps |
+| ✍️ `reflective-practice` | a practice experience | structured reflective-account scaffold mapped to the Code (CPD/revalidation) |
+| 🔎 `incident-reflection` | an anonymised incident/near-miss | just-culture learning summary (contributing factors + learning, not blame) |
+| ♿ `reasonable-adjustments-passport` | disclosed needs | Equality Act reasonable-adjustments passport (proposed, to agree) |
+| 📄 `policy-to-practice` | a national report/policy | plain-English summary + candidate local governance actions |
 | 🧭 `practice-loop-method` | — | the shared method that anchors all of the above |
 
 Each loop ships with an anonymised example and a sample audit log in [`examples/`](examples/).
