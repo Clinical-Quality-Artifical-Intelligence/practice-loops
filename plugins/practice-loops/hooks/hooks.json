@@ -1,0 +1,17 @@
+{
+  "description": "Practice Loops safety net: warns (non-blocking) when a submitted prompt looks like it contains identifiable patient/staff data, reminding the user to anonymise.",
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/hooks/pii_guard.py",
+            "args": [],
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}
