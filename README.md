@@ -71,6 +71,8 @@ Then invoke a loop by name — e.g. `/practice-loops:placement-support` — or i
 > - **Never** use a loop to decide pass/fail or fitness to practise, diagnose or treat, determine mental capacity, or make final safeguarding, disciplinary, or employment decisions.
 > - This is **not a medical device** and does not replace professional judgement. The audit log records what the assistant did; it is not an independent assurance check.
 
+A DCB0129 clinical safety case and hazard log for the plugin are in [`docs/safety/`](docs/safety/) (manufacturer drafts, pending Clinical Safety Officer sign-off).
+
 ---
 
 ## 🛠️ Local development
