@@ -32,7 +32,9 @@ A **Practice Loop** is a repeatable, AI-supported nursing workflow with a *job, 
 
 > **AI supports the workflow; the registered professional owns the judgement.**
 
-It maps directly onto the nursing process you already use: **Assess → Plan → Intervene → Evaluate → Adjust.**
+It maps directly onto the evidence-based nursing process you already use: **Assess → Diagnosis (Human Review Gate 1) → Plan → Intervene → Evaluate → Final Sign-Off (Human Review Gate 2).**
+
+See our scientific foundation document: **[ADPIE Dual-Gate Governance Architecture](docs/framework/ADPIE-DUAL-GATE-GOVERNANCE.md)**.
 
 ---
 
@@ -79,22 +81,22 @@ Every loop ends with a **human sign-off step**. Claude cannot complete a loop wi
 
 ---
 
-## 🏗️ How It Works
+## 🏗️ How It Works: Dual-Gate Architecture
 
 ```
-Trigger          ← you provide raw notes / context
+Trigger          ← Assess: you provide raw notes / context
    ↓
-Task             ← Claude identifies the job to be done
+Task & Diagnosis ← 🛑 GATE 1: Nurse validates problem identification & reasoning
    ↓
-Standard         ← loop anchors to NMC standards / policy
+Standard         ← Plan: loop anchors to NMC standards / policy
    ↓
-Verification     ← Claude scores itself /10; retries if < 8
+Verification     ← Evaluate: Claude scores itself /10; retries if < 8
    ↓
-Iteration        ← Claude self-corrects up to 3 times
+Iteration        ← Adjust: Claude self-corrects up to 3 times
    ↓
-Human Sign-Off   ← YOU review and approve the draft
+Human Sign-Off   ← 🛑 GATE 2: YOU review and approve final draft
    ↓
-Audit Trail      ← full record written to disk
+Audit Trail      ← Full record committed to disk
 ```
 
 ---
@@ -105,7 +107,7 @@ Audit Trail      ← full record written to disk
 .claude-plugin/          Claude Code marketplace manifest
 .github/workflows/       CI — validates loop definitions on every push
 docs/
-  framework/             Infographic and conceptual framework
+  framework/             ADPIE Dual-Gate evidence framework & infographic
   safety/                Safety and risk documentation
   superpowers/           What each loop can do
 evals/                   Evaluation harnesses and test cases
@@ -122,12 +124,12 @@ scripts/                 Developer utilities
 ## 🛡️ Safety Principles
 
 1. **No patient-identifiable data** — loops process de-identified professional notes only
-2. **Human sign-off is mandatory** — every loop halts until a registered professional approves
+2. **Dual-Gate Human Governance** — Gate 1 validates diagnostic reasoning; Gate 2 approves final outputs
 3. **Audit trail by default** — every run is logged with timestamp, loop version, and sign-off record
 4. **Risk escalation built-in** — loops halt and surface concerns rather than proceeding past risk thresholds
 5. **NMC-anchored** — every output is mapped to the relevant NMC standard or Code clause
 
-See [SECURITY.md](SECURITY.md) for the full security and disclosure policy.
+See [SECURITY.md](SECURITY.md) and [ADPIE-DUAL-GATE-GOVERNANCE.md](docs/framework/ADPIE-DUAL-GATE-GOVERNANCE.md) for details.
 
 ---
 
@@ -139,7 +141,7 @@ All contributions must:
 - Pass the `validate.yml` CI check
 - Include an eval test case in `evals/`
 - Include an example in `examples/`
-- Maintain the human sign-off requirement — this is non-negotiable
+- Maintain the Dual-Gate human review requirement — this is non-negotiable
 
 ---
 
