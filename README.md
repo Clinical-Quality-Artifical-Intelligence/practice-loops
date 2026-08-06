@@ -4,14 +4,15 @@
 
 ### Safe, governed AI workflows for nurses — as a Claude Code plugin
 
-*From the [Clinical Quality Artificial Intelligence (CQAI)](https://github.com/Clinical-Quality-Artifical-Intelligence) “Nurse as Citizen Developer” movement.*
+*From the [Clinical Quality Artificial Intelligence (CQAI)](https://github.com/Clinical-Quality-Artifical-Intelligence) "Nurse as Citizen Developer" movement.*
 
 [![validate](https://github.com/Clinical-Quality-Artifical-Intelligence/practice-loops/actions/workflows/validate.yml/badge.svg)](https://github.com/Clinical-Quality-Artifical-Intelligence/practice-loops/actions/workflows/validate.yml)
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache%202.0-1d9e75.svg)](LICENSE)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-plugin-da7756.svg)](https://code.claude.com/docs/en/plugins)
-![Loops](https://img.shields.io/badge/loops-11-026a76.svg)
+![Loops](https://img.shields.io/badge/loops-12-026a76.svg)
 ![Status](https://img.shields.io/badge/version-0.1.0-534ab7.svg)
 ![Human sign‑off](https://img.shields.io/badge/human%20sign--off-required-d85a30.svg)
+[![Security Policy](https://img.shields.io/badge/security-policy-red.svg)](SECURITY.md)
 
 <br/>
 
@@ -35,74 +36,123 @@ It maps directly onto the nursing process you already use: **Assess → Plan →
 
 ---
 
-## 🔁 The loops
+## 🔁 The Loops
 
 | Skill | Turns this… | …into a DRAFT |
 |---|---|---|
-| 🎓 `placement-support` | placement meeting notes | SMART action plan separating learning needs from conduct concerns |
-| 🌱 `preceptorship` | preceptee progress logs | 3-month review: confidence map + evidence gaps + reflective prompts |
+| ✅ `action-tracking` | a meeting transcript | governance-ready action log; risks flagged for human grading |
 | 💬 `clinical-supervision` | supervision notes | restorative follow-up record: themes, actions, prompts |
 | ⚖️ `edi-intelligence` | aggregate workforce metrics | equity briefing using rate-based fair comparison |
+| 🔍 `incident-reflection` | incident or near-miss notes | structured reflection: what happened, learning, actions |
+| 🎓 `placement-support` | placement meeting notes | SMART action plan separating learning needs from conduct concerns |
+| 📋 `policy-to-practice` | a policy or guideline | plain-English implementation guide mapped to ward context |
+| 🔄 `practice-loop-method` | any clinical topic | a fully structured practice loop definition ready to run |
+| 🌱 `preceptorship` | preceptee progress logs | 3-month review: confidence map + evidence gaps + reflective prompts |
+| ♿ `reasonable-adjustments-passport` | an employee's adjustment needs | a completed Reasonable Adjustments Passport draft |
+| 🪞 `reflective-practice` | a clinical experience or event | a structured reflection using Gibbs or ERA cycle |
+| 📝 `revalidation` | practice hours + CPD log | a revalidation submission draft mapped to NMC requirements |
 | 📚 `teaching` | a topic + audience level | session resource mapped to NMC proficiencies, with inclusive adjustments |
-| ✅ `action-tracking` | a meeting transcript | governance-ready action log; risks flagged for human grading |
-| 🔄 `revalidation` | revalidation evidence | portfolio-readiness summary against the NMC requirements, with gaps |
-| ✍️ `reflective-practice` | a practice experience | structured reflective-account scaffold mapped to the Code (CPD/revalidation) |
-| 🔎 `incident-reflection` | an anonymised incident/near-miss | just-culture learning summary (contributing factors + learning, not blame) |
-| ♿ `reasonable-adjustments-passport` | disclosed needs | Equality Act reasonable-adjustments passport (proposed, to agree) |
-| 📄 `policy-to-practice` | a national report/policy | plain-English summary + candidate local governance actions |
-| 🧭 `practice-loop-method` | — | the shared method that anchors all of the above |
-
-Each loop ships with an anonymised example and a sample audit log in [`examples/`](examples/).
 
 ---
 
-## 🚀 Install
+## 🚀 Quick Start
 
-In Claude Code:
+### 1. Install the plugin
 
-```text
-/plugin marketplace add Clinical-Quality-Artifical-Intelligence/practice-loops
-/plugin install practice-loops
+In Claude Code, run:
+
+```
+/plugin install https://github.com/Clinical-Quality-Artifical-Intelligence/practice-loops
 ```
 
-Then invoke a loop by name — e.g. `/practice-loops:placement-support` — or in natural language: *“run a placement support loop on these notes.”*
+### 2. Run a loop
 
----
-
-## ⚠️ Clinical-safety note
-
-> - **Anonymised inputs only.** Never paste identifiable patient or staff data — the loops halt and ask if they detect it. No AI tool may process identifiable data without your organisation's Information Governance (IG) approval.
-> - **Every output is a DRAFT** pending sign-off by a named registered professional. The loop never finalises.
-> - **Never** use a loop to decide pass/fail or fitness to practise, diagnose or treat, determine mental capacity, or make final safeguarding, disciplinary, or employment decisions.
-> - This is **not a medical device** and does not replace professional judgement. The audit log records what the assistant did; it is not an independent assurance check.
-
-A DCB0129 clinical safety case and hazard log for the plugin are in [`docs/safety/`](docs/safety/) (manufacturer drafts, pending Clinical Safety Officer sign-off).
-
----
-
-## 🛠️ Local development
-
-```bash
-claude --plugin-dir ./plugins/practice-loops    # load without installing
-# then /reload-plugins after edits
-python3 scripts/validate.py                      # structural test harness
-claude plugin validate ./plugins/practice-loops  # official validator
+```
+/placement-support
 ```
 
-Adding a loop? See [CONTRIBUTING.md](CONTRIBUTING.md).
+Claude will prompt you for your notes, run the six-pillar loop, and produce a draft for your review.
+
+### 3. Sign off
+
+Every loop ends with a **human sign-off step**. Claude cannot complete a loop without your explicit confirmation. The output and your sign-off are written to an audit trail file.
 
 ---
 
-## 📚 Background & framework
+## 🏗️ How It Works
 
-The full framework — the master guide, playbook, copy-paste templates, the infographic, and the source decks — lives in [`docs/framework/`](docs/framework/). The design spec and implementation plan are in [`docs/superpowers/`](docs/superpowers/).
+```
+Trigger          ← you provide raw notes / context
+   ↓
+Task             ← Claude identifies the job to be done
+   ↓
+Standard         ← loop anchors to NMC standards / policy
+   ↓
+Verification     ← Claude scores itself /10; retries if < 8
+   ↓
+Iteration        ← Claude self-corrects up to 3 times
+   ↓
+Human Sign-Off   ← YOU review and approve the draft
+   ↓
+Audit Trail      ← full record written to disk
+```
 
 ---
 
-<div align="center">
+## 📁 Repository Structure
 
-**Apache-2.0** · © 2026 Clinical Quality Artificial Intelligence · Practice Loops framework by Lincoln Gombedza
+```
+.claude-plugin/          Claude Code marketplace manifest
+.github/workflows/       CI — validates loop definitions on every push
+docs/
+  framework/             Infographic and conceptual framework
+  safety/                Safety and risk documentation
+  superpowers/           What each loop can do
+evals/                   Evaluation harnesses and test cases
+examples/                Example inputs and expected outputs
+plugins/
+  practice-loops/
+    skills/              One folder per loop (12 loops)
+    hooks/               Pre/post loop hooks
+scripts/                 Developer utilities
+```
 
-<sub>Technology teams build platforms, but nurses understand practice.</sub>
+---
 
-</div>
+## 🛡️ Safety Principles
+
+1. **No patient-identifiable data** — loops process de-identified professional notes only
+2. **Human sign-off is mandatory** — every loop halts until a registered professional approves
+3. **Audit trail by default** — every run is logged with timestamp, loop version, and sign-off record
+4. **Risk escalation built-in** — loops halt and surface concerns rather than proceeding past risk thresholds
+5. **NMC-anchored** — every output is mapped to the relevant NMC standard or Code clause
+
+See [SECURITY.md](SECURITY.md) for the full security and disclosure policy.
+
+---
+
+## 🤝 Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for how to add a new loop, report a bug, or improve an existing skill.
+
+All contributions must:
+- Pass the `validate.yml` CI check
+- Include an eval test case in `evals/`
+- Include an example in `examples/`
+- Maintain the human sign-off requirement — this is non-negotiable
+
+---
+
+## 📜 Licence
+
+[Apache 2.0](LICENSE) — see [NOTICE](NOTICE) for attribution details.
+
+---
+
+## 🔒 Privacy
+
+See [PRIVACY.md](PRIVACY.md) for data handling principles.
+
+---
+
+*Built with ❤️ for nursing by the [CQAI](https://github.com/Clinical-Quality-Artifical-Intelligence) "Nurse as Citizen Developer" movement.*
