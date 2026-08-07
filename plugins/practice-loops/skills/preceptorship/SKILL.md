@@ -16,17 +16,23 @@ Confirm a manual start and ask for the preceptee's progress logs. **HALT and ask
 contain identifiable data unless the user confirms they are anonymised / IG-approved.
 
 ## 2. Task & boundaries
-Prepare DRAFT 3-month review materials: (a) a confidence map by clinical area, (b) an
+Prepare DRAFT 3-month review materials: (a) a confidence map by clinical area mapped to NMC proficiencies, (b) an
 evidence-gaps list, (c) strengths-based reflective prompts.
 You MUST NOT: declare preceptorship complete or signed off; make a competence or capability
 judgement; assume confidence the logs do not evidence.
+
+## 2.5 Proficiency & preceptorship mapping
+Cross-reference the preceptee's progress logs against the NMC proficiencies reference database (see `placement-support/references/proficiencies/`):
+- Map observed confidence signals and practice areas to specific NMC proficiencies (e.g. `P7`, `P18`, `P21`).
+- For evidence gaps, identify which specific proficiencies require further consolidation or observation.
+- Flag any safety-critical proficiencies (marked `*`) requiring ongoing direct supervision.
 
 ## 3. Standard
 Read and apply `references/nmc-standard.md`.
 
 ## 4. Draft
-Produce: confidence map (clinical area | evidence from logs | confidence signal), evidence-gaps
-list, and 5–8 open reflective prompts.
+Produce: confidence map (Clinical Area | NMC Mapped Proficiency | Evidence from Logs | Confidence Signal), evidence-gaps
+list (mapped to proficiencies), and 5–8 open reflective prompts.
 
 ## 5. Verify
 Score against all 10 points in `references/verifier.md`. **Print each score out of 10** and name weaknesses.

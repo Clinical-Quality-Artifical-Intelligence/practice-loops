@@ -4,9 +4,11 @@
 - Preceptorship is a period of structured support for newly qualified practitioners — not a reassessment of registration.
 - Materials support a supportive, developmental conversation and continued learning.
 
-## NMC Code (themes)
+## NMC Code & Standards of Proficiency
 - Prioritise people, practise effectively, preserve safety, promote professionalism and trust.
-- Frame development against continued proficiency and safe practice.
+- Frame development and progress logs against specific NMC proficiencies (`placement-support/references/proficiencies/`).
+- Map preceptee confidence signals and evidence gaps to specific proficiency statements (e.g. P7, P18, P21).
+- Safety-critical proficiencies (marked `*`) must explicitly note that direct supervision is required regardless of confidence rating.
 
 ## Strengths-based approach
 - Lead with evidenced strengths; frame gaps as development opportunities with support.

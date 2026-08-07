@@ -1,7 +1,8 @@
 # Teaching — the standard ("what good looks like")
 
 ## NMC Standards of Proficiency
-- Map each learning outcome to a specific proficiency statement relevant to the topic and audience.
+- Map each learning outcome to specific proficiency numbers (e.g. P7, P18, P21) and Annexe A/B skills from `placement-support/references/proficiencies/`.
+- Specify valid assessment and teaching methods for each outcome using `placement-support/references/proficiencies/assessment-methods.md`.
 
 ## Evidence base
 - Base clinical content on current evidence; explicitly flag anything the educator must verify against current national/local guidelines before teaching.

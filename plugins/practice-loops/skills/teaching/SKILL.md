@@ -16,16 +16,22 @@ Confirm a manual start. Ask for the topic and the audience level (e.g. pre-reg y
 / HCSW). **HALT and ask** if any supplied material contains identifiable data unless confirmed anonymised.
 
 ## 2. Task & boundaries
-Produce a DRAFT session resource: learning outcomes, session plan, knowledge checks, and inclusive
+Produce a DRAFT session resource: learning outcomes (mapped to specific NMC proficiencies and valid assessment methods), session plan, knowledge checks, and inclusive
 adjustments, pitched at the stated level.
 You MUST NOT: present clinical content as definitive without flagging it for local-policy
 verification; assume prior knowledge beyond what is stated.
+
+## 2.5 Proficiency & assessment method mapping
+Read the NMC proficiencies database (`placement-support/references/proficiencies/`):
+- Map each learning outcome to specific NMC proficiency number(s) (e.g. `P7`, `P18`, `P21`) and Annexe A/B skills.
+- Select valid assessment and teaching methods (e.g. Simulation, Direct Observation, Discussion) from `placement-support/references/proficiencies/assessment-methods.md`.
+- Flag any safety-critical clinical procedures (marked `*`) requiring verification against local trust policy before teaching.
 
 ## 3. Standard
 Read and apply `references/nmc-standard.md`.
 
 ## 4. Draft
-Produce: Learning outcomes (mapped to NMC proficiency statements) | Session plan with timings |
+Produce: Learning outcomes (mapped to specific NMC proficiency statements and assessment methods) | Session plan with timings |
 3–5 knowledge checks | Inclusive adjustments.
 
 ## 5. Verify
