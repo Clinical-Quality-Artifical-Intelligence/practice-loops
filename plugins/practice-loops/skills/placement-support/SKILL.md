@@ -20,18 +20,24 @@ number, location) unless the user confirms they are anonymised or IG-approved.
 ## 2. Task & boundaries
 Draft a SMART action plan that:
 - separates **learning needs** from **conduct concerns** into two clearly labelled sections,
+- maps each learning need to specific NMC **proficiencies** and valid assessment methods (from `references/proficiencies/`),
 - includes the **student voice**, and
 - maps to PAD requirements and NMC professional values.
 
 You MUST NOT: decide progression or pass/fail; make any fitness-to-practise, capability,
 employment, or disciplinary decision; invent facts (mark gaps "to confirm with student/assessor").
 
+## 2.5 Proficiency mapping
+Read `references/proficiencies/year-<N>-proficiencies.md` (based on the student's programme year, defaulting to Year 1 if unspecified) and `references/proficiencies/assessment-methods.md`. For each concern or learning need:
+- Map it to the specific NMC proficiency number(s) (e.g. `P7`, `P18`, `P21`).
+- Note the valid assessment method(s) (e.g. Direct Observation, Simulation, Discussion).
+- Flag any proficiencies marked with `*` as requiring perpetual direct supervision.
+
 ## 3. Standard
 Read and apply `references/nmc-standard.md`.
 
 ## 4. Draft
-Produce the action plan as a table — Concern | Type (learning/conduct) | SMART action | Owner |
-Review date — followed by a short **student voice** section.
+Produce the action plan as a table — Concern | Type (learning/conduct) | Mapped Proficiency | SMART action | Assessment Method | Owner | Review date — followed by a short **student voice** section.
 
 ## 5. Verify
 Score the draft against all 10 points in `references/verifier.md`. **Print each score out of 10**

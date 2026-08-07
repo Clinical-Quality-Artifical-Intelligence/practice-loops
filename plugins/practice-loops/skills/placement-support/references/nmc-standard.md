@@ -3,16 +3,19 @@
 Check the draft action plan against these professional anchors.
 
 ## NMC Standards of Proficiency for Registered Nurses
-- Frame learning needs against the relevant proficiency platforms/annexes the placement covers.
-- Development goals should map to specific proficiency statements where possible.
+- Frame learning needs against specific proficiency statements in `references/proficiencies/year-<N>-proficiencies.md`.
+- Development goals should map to specific proficiency numbers (e.g. P7, P18, P21).
+- Assessment methods must align with the 5 valid methods in `references/proficiencies/assessment-methods.md`.
+- Safety-critical proficiencies (marked `*`) must explicitly note that direct supervision is required even after passing.
+- Note that "the learner does not need to demonstrate all examples — these are suggestions for the assessment process" (NMC guidance).
 
 ## NMC Standards for Student Supervision and Assessment (SSSA)
 - Respect the roles of practice supervisor, practice assessor, and academic assessor.
 - The plan supports supervision/assessment; it does not replace the assessor's judgement.
 
 ## Practice Assessment Document (PAD)
-- Align actions to the student's PAD requirements and the stage of the programme.
-- Reference where evidence will be recorded.
+- Align actions to the student's PAD requirements and the stage of the programme (Part 1/2/3).
+- Reference where evidence will be recorded and which assessment method will be used.
 
 ## Student voice
 - The plan must include the student's perspective and agreed contributions. Co-production, not done-to.
