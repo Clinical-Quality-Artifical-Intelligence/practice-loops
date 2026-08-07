@@ -1,146 +1,160 @@
 <div align="center">
 
-<img src="docs/framework/hero_banner.jpg" alt="Practice Loops for Nursing Banner" width="100%" style="border-radius: 12px; margin-bottom: 20px;">
-
 # 🩺 Practice Loops for Nursing
-### Safe, Governed AI Workflows for Registered Nurses — as a Claude Code Plugin
+
+### Safe, governed AI workflows for nurses — as a Claude Code plugin
 
 *From the [Clinical Quality Artificial Intelligence (CQAI)](https://github.com/Clinical-Quality-Artifical-Intelligence) "Nurse as Citizen Developer" movement.*
 
+[![validate](https://github.com/Clinical-Quality-Artifical-Intelligence/practice-loops/actions/workflows/validate.yml/badge.svg)](https://github.com/Clinical-Quality-Artifical-Intelligence/practice-loops/actions/workflows/validate.yml)
+[![License: Apache-2.0](https://img.shields.io/badge/License-Apache%202.0-1d9e75.svg)](LICENSE)
+[![Claude Code](https://img.shields.io/badge/Claude%20Code-plugin-da7756.svg)](https://code.claude.com/docs/en/plugins)
+![Loops](https://img.shields.io/badge/loops-12-026a76.svg)
+![Status](https://img.shields.io/badge/version-0.1.0-534ab7.svg)
+![Human sign‑off](https://img.shields.io/badge/human%20sign--off-required-d85a30.svg)
+[![Security Policy](https://img.shields.io/badge/security-policy-red.svg)](SECURITY.md)
+
 <br/>
 
-[![Validate CI](https://img.shields.io/github/actions/workflow/status/Clinical-Quality-Artifical-Intelligence/practice-loops/validate.yml?branch=main&style=for-the-badge&logo=github&label=CI%20CHECKS)](https://github.com/Clinical-Quality-Artifical-Intelligence/practice-loops/actions/workflows/validate.yml)
-[![Apache 2.0 License](https://img.shields.io/badge/License-Apache%202.0-10b981.svg?style=for-the-badge&logo=apache)](LICENSE)
-[![Claude Code Plugin](https://img.shields.io/badge/Claude%20Code-Plugin-f97316.svg?style=for-the-badge&logo=anthropic)](https://code.claude.com/docs/en/plugins)
-[![Active Loops](https://img.shields.io/badge/Loops-12%20Active-06b6d4.svg?style=for-the-badge&logo=appveyor)](plugins/practice-loops/skills/)
-[![Dual-Gate Governance](https://img.shields.io/badge/ADPIE-Dual--Gate%20HITL-8b5cf6.svg?style=for-the-badge&logo=shield)](docs/framework/ADPIE-DUAL-GATE-GOVERNANCE.md)
-[![Security Policy](https://img.shields.io/badge/Security-Policy-ef4444.svg?style=for-the-badge&logo=security)](SECURITY.md)
+<img src="docs/framework/Nursing-LOOPS-infographic.png" alt="Practice Loops for Nursing — the prompt, the six-stage practice loop (trigger, task, standard, verification, iteration), human sign-off, and the components a loop needs" width="820">
 
 </div>
 
 ---
 
-## 🌟 What is a Practice Loop?
+## What is a Practice Loop?
 
-A **Practice Loop** is a repeatable, AI-supported nursing workflow with a *job, a standard, and a stopping rule*. Instead of unstructured one-off prompting, every loop executes an evidence-based **ADPIE Dual-Gate Governance Model**:
+A **Practice Loop** is a repeatable, AI-supported nursing workflow with a *job, a standard, and a stopping rule*. Instead of one-off prompting, each loop drives Claude through six pillars —
+
+> **Trigger → Task → Standard → Verification → Iteration → Human Sign-Off**
+
+— printing a 10-point verification score, self-correcting anything below 8/10, halting on risk, and writing an **audit trail** to disk.
+
+> **AI supports the workflow; the registered professional owns the judgement.**
+
+It maps directly onto the evidence-based nursing process you already use: **Assess → Diagnosis (Human Review Gate 1) → Plan → Intervene → Evaluate → Final Sign-Off (Human Review Gate 2).**
+
+See our scientific foundation document: **[ADPIE Dual-Gate Governance Architecture](docs/framework/ADPIE-DUAL-GATE-GOVERNANCE.md)**.
+
+---
+
+## 🔁 The Loops
+
+| Skill | Turns this… | …into a DRAFT |
+|---|---|---|
+| ✅ `action-tracking` | a meeting transcript | governance-ready action log; risks flagged for human grading |
+| 💬 `clinical-supervision` | supervision notes | restorative follow-up record: themes, actions, prompts |
+| ⚖️ `edi-intelligence` | aggregate workforce metrics | equity briefing using rate-based fair comparison |
+| 🔍 `incident-reflection` | incident or near-miss notes | structured reflection: what happened, learning, actions |
+| 🎓 `placement-support` | placement meeting notes | SMART action plan separating learning needs from conduct concerns |
+| 📋 `policy-to-practice` | a policy or guideline | plain-English implementation guide mapped to ward context |
+| 🔄 `practice-loop-method` | any clinical topic | a fully structured practice loop definition ready to run |
+| 🌱 `preceptorship` | preceptee progress logs | 3-month review: confidence map + evidence gaps + reflective prompts |
+| ♿ `reasonable-adjustments-passport` | an employee's adjustment needs | a completed Reasonable Adjustments Passport draft |
+| 🪞 `reflective-practice` | a clinical experience or event | a structured reflection using Gibbs or ERA cycle |
+| 📝 `revalidation` | practice hours + CPD log | a revalidation submission draft mapped to NMC requirements |
+| 📚 `teaching` | a topic + audience level | session resource mapped to NMC proficiencies, with inclusive adjustments |
+
+---
+
+## 🚀 Quick Start
+
+### 1. Install the plugin
+
+In Claude Code, run:
 
 ```
- 📥 ASSESS           🛑 GATE 1 (HITL)         📐 PLAN & INTERVENE        🔍 EVALUATE        🛑 GATE 2 (HITL)
-[Raw Trigger Data] ➔ [Nurse Validates]    ➔ [AI Drafts Standard]  ➔ [Verification] ➔ [Final Sign-Off]
-                     (Diagnostic Reasoning)   (NMC / Policy Mapped)    (/10 Score Check)   (& Audit Log)
-```
-
-> 🛡️ **Core Principle**: *AI supports cognitive synthesis; the registered professional owns clinical diagnosis, judgment, and sign-off.*
-
----
-
-## ⚡ Key Features at a Glance
-
-<table>
-  <tr>
-    <td width="50%" valign="top">
-      <h3>🛡️ Dual-Gate Human Governance</h3>
-      <p>Includes mandatory Human-in-the-Loop (HITL) gates at the <b>Diagnosis stage</b> (Gate 1) and <b>Final Sign-Off</b> (Gate 2), ensuring strict compliance with NMC standards.</p>
-    </td>
-    <td width="50%" valign="top">
-      <h3>🔒 Clinical Data Safety & HALT</h3>
-      <p>Built-in automatic detection for patient-identifiable data. Immediately halts execution if raw identifiable details are detected.</p>
-    </td>
-  </tr>
-  <tr>
-    <td width="50%" valign="top">
-      <h3>📈 Self-Correcting Verification</h3>
-      <p>Every loop self-scores its output against a 10-point clinical standard. Scores below 8/10 trigger up to 3 automatic refinement iterations.</p>
-    </td>
-    <td width="50%" valign="top">
-      <h3>📁 Permanent Disk Audit Trail</h3>
-      <p>Automatically records timestamps, loop version, registrant ID, and verification scores to <code>./practice-loop-audit/</code> for governance.</p>
-    </td>
-  </tr>
-</table>
-
----
-
-## 🔁 The 12 Practice Loops
-
-<details open>
-<summary><b>📋 Click to Expand / Collapse Full Loop Suite</b></summary>
-
-<br/>
-
-| Category | Skill Command | Input (Trigger) | Output (Governance DRAFT) |
-|---|---|---|---|
-| 🏥 **Clinical Governance** | `action-tracking` | Meeting transcript | Governance-ready action log; safety risks flagged |
-| 🏥 **Clinical Governance** | `incident-reflection` | Incident / near-miss notes | Structured Datix-aligned reflection & system learning |
-| 📋 **Policy & Practice** | `policy-to-practice` | Trust policy / guideline | Ward-level plain English implementation guide |
-| 🎓 **Education & Support** | `placement-support` | Student placement notes | SMART action plan separating learning vs conduct |
-| 🌱 **Education & Support** | `preceptorship` | Preceptee progress log | 3-month review: confidence map & evidence gaps |
-| 📚 **Education & Support** | `teaching` | Topic & audience level | NMC-aligned session plan with inclusive adjustments |
-| 💬 **Supervision & Well-being**| `clinical-supervision` | Supervision notes | Restorative follow-up record with themes & actions |
-| ♿ **Supervision & Well-being**| `reasonable-adjustments-passport` | Employee adjustment notes | Completed Reasonable Adjustments Passport draft |
-| ⚖️ **Workforce & Equity** | `edi-intelligence` | Workforce metrics | Rate-based equity briefing (per 100 staff) |
-| 🪞 **Professional Revalidation**| `reflective-practice` | Clinical event reflection | Gibbs / ERA structured reflection mapped to NMC Code |
-| 📝 **Professional Revalidation**| `revalidation` | Hours & CPD summary | Complete NMC revalidation submission draft |
-| 🔄 **Meta-Method** | `practice-loop-method` | Clinical scenario idea | Custom 6-pillar Practice Loop definition |
-
-</details>
-
----
-
-## 🚀 Quick Start Guide
-
-### 1. Install the Plugin
-
-In **Claude Code**, install directly from GitHub:
-
-```bash
 /plugin install https://github.com/Clinical-Quality-Artifical-Intelligence/practice-loops
 ```
 
-### 2. Run Any Practice Loop
+### 2. Run a loop
 
-Invoke your desired skill command in chat:
-
-```bash
+```
 /placement-support
 ```
 
-### 3. Dual-Gate Review Flow
+Claude will prompt you for your notes, run the six-pillar loop, and produce a draft for your review.
+
+### 3. Sign off
+
+Every loop ends with a **human sign-off step**. Claude cannot complete a loop without your explicit confirmation. The output and your sign-off are written to an audit trail file.
+
+---
+
+## 🏗️ How It Works: Dual-Gate Architecture
 
 ```
-1. Input Raw Notes ➔ 2. Review Diagnostic Hypotheses (Gate 1) ➔ 3. AI Refinement (/10) ➔ 4. Final Approval (Gate 2)
+Trigger          ← Assess: you provide raw notes / context
+   ↓
+Task & Diagnosis ← 🛑 GATE 1: Nurse validates problem identification & reasoning
+   ↓
+Standard         ← Plan: loop anchors to NMC standards / policy
+   ↓
+Verification     ← Evaluate: Claude scores itself /10; retries if < 8
+   ↓
+Iteration        ← Adjust: Claude self-corrects up to 3 times
+   ↓
+Human Sign-Off   ← 🛑 GATE 2: YOU review and approve final draft
+   ↓
+Audit Trail      ← Full record committed to disk
 ```
 
 ---
 
-## 📊 Scientific & Architectural Foundation
+## 📁 Repository Structure
 
-Our Dual-Gate model is grounded in peer-reviewed nursing informatics literature:
+```
+.claude-plugin/          Claude Code marketplace manifest
+.github/workflows/       CI — validates loop definitions on every push
+docs/
+  framework/             ADPIE Dual-Gate evidence framework & infographic
+  safety/                Safety and risk documentation
+  superpowers/           What each loop can do
+evals/                   Evaluation harnesses and test cases
+examples/                Example inputs and expected outputs
+plugins/
+  practice-loops/
+    skills/              One folder per loop (12 loops)
+    hooks/               Pre/post loop hooks
+scripts/                 Developer utilities
+```
 
-<img src="docs/framework/Nursing-LOOPS-infographic.png" alt="Framework Infographic" width="100%" style="border-radius: 8px; margin: 15px 0;">
+---
 
-*   📖 Read our full evidence synthesis: **[ADPIE Dual-Gate Governance Architecture](docs/framework/ADPIE-DUAL-GATE-GOVERNANCE.md)**
-*   🛡️ Read our security disclosure policy: **[SECURITY.md](SECURITY.md)**
-*   📜 Review our Code of Conduct: **[CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)**
+## 🛡️ Safety Principles
+
+1. **No patient-identifiable data** — loops process de-identified professional notes only
+2. **Dual-Gate Human Governance** — Gate 1 validates diagnostic reasoning; Gate 2 approves final outputs
+3. **Audit trail by default** — every run is logged with timestamp, loop version, and sign-off record
+4. **Risk escalation built-in** — loops halt and surface concerns rather than proceeding past risk thresholds
+5. **NMC-anchored** — every output is mapped to the relevant NMC standard or Code clause
+
+See [SECURITY.md](SECURITY.md) and [ADPIE-DUAL-GATE-GOVERNANCE.md](docs/framework/ADPIE-DUAL-GATE-GOVERNANCE.md) for details.
 
 ---
 
 ## 🤝 Contributing
 
-We welcome contributions from nurses, clinical leaders, and developers!
+See [CONTRIBUTING.md](CONTRIBUTING.md) for how to add a new loop, report a bug, or improve an existing skill.
 
-1. Check open issues or suggest a new loop using our [Issue Templates](.github/ISSUE_TEMPLATE/).
-2. Review our [Pull Request Template](.github/PULL_REQUEST_TEMPLATE.md).
-3. Run local validation:
-   ```bash
-   python3 scripts/validate.py
-   python3 scripts/check_guardrails.py
-   ```
+All contributions must:
+- Pass the `validate.yml` CI check
+- Include an eval test case in `evals/`
+- Include an example in `examples/`
+- Maintain the Dual-Gate human review requirement — this is non-negotiable
 
 ---
 
-## 📜 Licence & Attribution
+## 📜 Licence
 
-Licensed under [Apache 2.0](LICENSE). See [NOTICE](NOTICE) for details.
+[Apache 2.0](LICENSE) — see [NOTICE](NOTICE) for attribution details.
+
+---
+
+## 🔒 Privacy
+
+See [PRIVACY.md](PRIVACY.md) for data handling principles.
+
+---
 
 *Built with ❤️ for nursing by the [CQAI](https://github.com/Clinical-Quality-Artifical-Intelligence) "Nurse as Citizen Developer" movement.*
