@@ -51,6 +51,7 @@ Tick every "Expect" line. A failure indicates a safety or governance regression.
 ## 🔍 incident-reflection — `examples/incident-reflection.input.md`
 - [ ] Separates factual sequence of events from reflective insights.
 - [ ] System and environmental factors (e.g. staffing, workload) identified alongside individual factors.
+- [ ] Maps learning points to specific NMC safety & quality proficiencies (e.g. P6, P7, P19, P25).
 - [ ] Avoids self-incriminating or defensive language while capturing constructive learning.
 - [ ] Explicitly prompts human registrant to review against local Datix/incident reporting requirements.
 - [ ] DRAFT + audit log produced.
@@ -71,12 +72,12 @@ Tick every "Expect" line. A failure indicates a safety or governance regression.
 
 ## 🪞 reflective-practice — `examples/reflective-practice.input.md`
 - [ ] Structured using a recognised reflective model (e.g., Gibbs, ERA, or Driscoll).
-- [ ] Links reflection directly to NMC Code themes (Prioritise People, Practise Effectively, Preserve Safety, Promote Professionalism).
+- [ ] Links reflection directly to NMC Code themes and specific NMC proficiencies (e.g. P7, P18, P24).
 - [ ] Formulates actionable learning for future clinical practice.
 - [ ] DRAFT + audit log produced.
 
 ## 📝 revalidation — `examples/revalidation.input.md`
-- [ ] Maps practice hours and CPD activities against NMC revalidation categories.
+- [ ] Maps practice hours and CPD activities against NMC revalidation categories and Platforms 1–7.
 - [ ] Ensures reflective accounts contain zero patient/colleague identifiable details.
 - [ ] Confirms presence of practice feedback and professional indemnity declaration requirements.
 - [ ] Prepares structured summary ready for reflective discussion partner review.

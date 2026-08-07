@@ -17,16 +17,21 @@ identifiable patient/colleague data (feedback must be anonymised) unless the use
 anonymised / IG-approved.
 
 ## 2. Task & boundaries
-Draft a DRAFT portfolio readiness summary that checks the evidence against the NMC requirements
+Draft a DRAFT portfolio readiness summary that checks the evidence against the NMC requirements (mapped to NMC proficiency platforms 1–7)
 and lists gaps and next steps.
 You MUST NOT: act as the confirmer or sign the registrant off; fabricate or assume hours, CPD, or
 reflective content; make a fitness-to-practise judgement.
+
+## 2.5 Proficiency platform & evidence mapping
+Cross-reference the revalidation evidence (CPD hours, feedback, reflective accounts) against the NMC proficiencies database (`placement-support/references/proficiencies/`):
+- Map practice hours and CPD topics across the 7 NMC Platforms (1: Professionalism, 2: Health promotion, 3: Assessment/care planning, 4: Care delivery, 5: Leadership/teamwork, 6: Safety/quality, 7: Care coordination).
+- Ensure reflective accounts explicitly reference NMC proficiencies (`P1`–`P29`) and Code themes.
 
 ## 3. Standard
 Read and apply `references/nmc-standard.md`.
 
 ## 4. Draft
-Produce: a requirements checklist (met / partial / gap, with evidence pointer) and a prioritised
+Produce: a requirements checklist (met / partial / gap, with evidence pointer and NMC Platform mapping) and a prioritised
 list of actions to be revalidation-ready.
 
 ## 5. Verify

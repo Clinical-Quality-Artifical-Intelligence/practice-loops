@@ -17,16 +17,21 @@ contains identifiable patient/colleague data unless the user confirms it is anon
 
 ## 2. Task & boundaries
 Draft a DRAFT structured reflective account scaffold (e.g., what happened / feelings / evaluation /
-analysis / learning / action) mapped to the relevant themes of the NMC Code.
+analysis / learning / action) mapped to the relevant themes of the NMC Code and specific NMC proficiencies.
 You MUST NOT: fabricate events or feelings; replace the registrant's own reflection (this is a
 scaffold to personalise); draw conclusions about others' fitness or conduct.
+
+## 2.5 Proficiency & Code mapping
+Cross-reference the reflection against the NMC proficiencies database (`placement-support/references/proficiencies/`):
+- Map key clinical/professional learning points to specific NMC proficiencies (e.g. `P7` deterioration, `P18` hand hygiene, `P24` risk assessment).
+- Identify which NMC Code themes (Prioritise People, Practise Effectively, Preserve Safety, Promote Professionalism) align with the reflection.
 
 ## 3. Standard
 Read and apply `references/nmc-standard.md`.
 
 ## 4. Draft
 Produce: a reflective account scaffold with prompts the registrant completes in their own voice,
-plus the Code themes engaged and a learning/action point.
+plus the Code themes engaged, mapped NMC proficiencies (`P1`–`P29`), and a learning/action point.
 
 ## 5. Verify
 Score against all 10 points in `references/verifier.md`. **Print each score out of 10** and name weaknesses.

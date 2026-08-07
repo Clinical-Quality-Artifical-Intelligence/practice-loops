@@ -16,15 +16,20 @@ it contains identifiable patient/staff data unless the user confirms it is anony
 
 ## 2. Task & boundaries
 Draft a DRAFT learning-focused summary: what happened (factually), contributing factors (systems
-lens), and learning/actions — in a just-culture, non-blaming tone.
+lens), and learning/actions (mapped to NMC safety & quality proficiencies) — in a just-culture, non-blaming tone.
 You MUST NOT: determine root cause as a finding; apportion blame or judge individual conduct;
 make a Duty of Candour, disciplinary, or patient-safety incident-grading decision.
+
+## 2.5 Proficiency & safety mapping
+Cross-reference the incident learning points against the NMC proficiencies database (`placement-support/references/proficiencies/`):
+- Map system/human/environmental learning points to specific NMC proficiencies (e.g. `P6` quality/safety improvement, `P7` deterioration, `P19` IPC, `P25` hazard response).
+- Highlight valid assessment/remediation methods for preventing recurrence.
 
 ## 3. Standard
 Read and apply `references/nmc-standard.md`.
 
 ## 4. Draft
-Produce: factual summary | contributing factors (system/human/environment) | learning points |
+Produce: factual summary | contributing factors (system/human/environment) | learning points mapped to NMC proficiencies (`P6`, `P7`, `P19`, `P25`) |
 suggested actions for human consideration.
 
 ## 5. Verify
