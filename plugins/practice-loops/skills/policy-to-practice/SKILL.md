@@ -16,16 +16,21 @@ accompanying material contains identifiable data unless the user confirms it is 
 
 ## 2. Task & boundaries
 Draft a DRAFT plain-English summary and a candidate local governance action list (what may need to
-change locally, who might own it).
+change locally, who might own it, mapped to NMC Platforms 3 & 6).
 You MUST NOT: decide or commit the organisation to governance/clinical actions; assert local
 applicability as fact; invent owners/deadlines (mark "TBC"); misrepresent the source.
+
+## 2.5 Proficiency & policy mapping
+Cross-reference policy clauses against the NMC proficiencies database (`placement-support/references/proficiencies/`):
+- Map care delivery rules to NMC Platform 3 (Assessing Needs & Care Planning; `P3`, `P7`, `P24`).
+- Map safety/quality mandates to NMC Platform 6 (Safety & Quality Improvement; `P6`, `P18`, `P19`, `P25`).
 
 ## 3. Standard
 Read and apply `references/nmc-standard.md`.
 
 ## 4. Draft
 Produce: a faithful summary (key points + what changed) and a candidate action list
-(Action | Possible owner | Source reference | For human decision).
+(Action | Possible owner | NMC Platform/Proficiency | Source reference | For human decision).
 
 ## 5. Verify
 Score against all 10 points in `references/verifier.md`. **Print each score out of 10** and name weaknesses.

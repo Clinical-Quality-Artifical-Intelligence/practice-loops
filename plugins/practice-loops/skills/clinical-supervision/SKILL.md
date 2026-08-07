@@ -17,15 +17,20 @@ identifiable data unless the user confirms they are anonymised / IG-approved.
 
 ## 2. Task & boundaries
 Produce a DRAFT structured follow-up record: key themes, agreed actions (with owners and
-timeframes), and open reflective prompts for next session.
+timeframes, mapped to NMC Platform 1 & supervision principles), and open reflective prompts for next session.
 You MUST NOT: make any clinical, conduct, or performance decision; add interpretation beyond
 what the notes support; record something as "agreed" unless the notes show agreement.
+
+## 2.5 Restorative supervision & proficiency mapping
+Cross-reference supervision themes against the NMC proficiencies database (`placement-support/references/proficiencies/`):
+- Map professional reflection and wellbeing themes to NMC Platform 1 (Accountability & Ethics; `P1`, `P5`, `P8`).
+- Align agreed actions with Restorative Clinical Supervision principles (A-OS Model: Action, Outcome, Support).
 
 ## 3. Standard
 Read and apply `references/nmc-standard.md`.
 
 ## 4. Draft
-Produce: Themes | Agreed actions (+ owner + timeframe) | Reflective prompts for next time.
+Produce: Themes | Agreed actions (+ NMC Platform/Proficiency + owner + timeframe) | Reflective prompts for next time.
 
 ## 5. Verify
 Score against all 10 points in `references/verifier.md`. **Print each score out of 10** and name weaknesses.

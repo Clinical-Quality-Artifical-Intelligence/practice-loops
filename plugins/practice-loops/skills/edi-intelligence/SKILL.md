@@ -19,15 +19,20 @@ aggregate and disclosure-safe.
 ## 2. Task & boundaries
 Produce a DRAFT equity briefing: representation gaps and progression/disproportionality signals
 using **rate-based** comparison (e.g. rate per 100, not raw counts), plus exploratory leadership
-questions.
+questions (mapped to NMC Platform 1 and Equality Act 2010).
 You MUST NOT: draw conclusions about individuals; assert causation from correlation; make HR,
 disciplinary, or employment recommendations about any person.
+
+## 2.5 Proficiency & equity mapping
+Cross-reference workforce signals against the NMC proficiencies database (`placement-support/references/proficiencies/`):
+- Map equity findings to NMC Platform 1 (Being an Accountable Professional) and Equality Act 2010 protected characteristics.
+- Frame leadership questions around inclusive practice, reasonable adjustments, and fair progression.
 
 ## 3. Standard
 Read and apply `references/nmc-standard.md`.
 
 ## 4. Draft
-Produce: Headline signals | Representation/progression gaps (with rates) | Leadership questions | Data caveats.
+Produce: Headline signals | Representation/progression gaps (with rates & NMC Platform 1 alignment) | Leadership questions | Data caveats.
 
 ## 5. Verify
 Score against all 10 points in `references/verifier.md`. **Print each score out of 10** and name weaknesses.

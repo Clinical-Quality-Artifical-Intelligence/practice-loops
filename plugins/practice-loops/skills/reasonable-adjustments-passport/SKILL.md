@@ -18,15 +18,20 @@ anonymised / shared with the person's consent and IG-approved. Health informatio
 
 ## 2. Task & boundaries
 Draft a DRAFT reasonable-adjustments passport: the impact described, proposed adjustments, who/how
-they are reviewed — as proposals to be agreed with the person.
+they are reviewed — as proposals to be agreed with the person (aligned with Equality Act 2010 and NMC Platform 1).
 You MUST NOT: diagnose or infer a condition; make an occupational-health, fitness-to-practise, or
 fitness-for-work decision; impose adjustments without the person's agreement.
+
+## 2.5 Equality Act & proficiency mapping
+Cross-reference disclosed workplace needs against the NMC proficiencies database (`placement-support/references/proficiencies/`):
+- Map adjustments to NMC Platform 1 (Being an Accountable Professional; `P4`, `P8`, `P9`, `P16`, `P17`) and Equality Act 2010 reasonable adjustment standards.
+- Ensure adjustments support independent practice, dignity, and student/staff empowerment.
 
 ## 3. Standard
 Read and apply `references/nmc-standard.md`.
 
 ## 4. Draft
-Produce: a passport table (Barrier/impact | Proposed adjustment | Who supports | Review date),
+Produce: a passport table (Barrier/impact | Proposed adjustment | NMC Platform/Proficiency | Who supports | Review date),
 person-centred and in collaborative language.
 
 ## 5. Verify

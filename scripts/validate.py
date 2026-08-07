@@ -62,6 +62,13 @@ present = {p.name for p in skills_dir.iterdir() if p.is_dir()} if skills_dir.exi
 missing = EXPECTED - present
 check(not missing, f"missing required skills: {sorted(missing)}")
 
+# proficiencies database
+prof_dir = skills_dir / "placement-support" / "references" / "proficiencies"
+check(prof_dir.exists(), "missing placement-support/references/proficiencies/ directory")
+if prof_dir.exists():
+    for db_file in ("assessment-methods.md", "year-1-proficiencies.md", "year-2-proficiencies.md", "year-3-proficiencies.md"):
+        check((prof_dir / db_file).exists(), f"missing proficiency database file: {db_file}")
+
 if errors:
     print("VALIDATION FAILED:")
     for e in errors:

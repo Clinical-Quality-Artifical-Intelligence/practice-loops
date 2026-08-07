@@ -15,7 +15,7 @@ stopping rule. **AI supports the workflow; the registered professional owns the 
 ## The six pillars
 1. **Trigger** — a manual start (the nurse initiates).
 2. **Task** — a bounded job that states what the AI must NOT decide.
-3. **Standard** — the NMC Code / Standards of Proficiency / Trust policy / Equality Act anchor.
+3. **Standard** — the NMC Code / Standards of Proficiency / Trust policy / Equality Act anchor (mapped to the `references/proficiencies/` database).
 4. **Verification** — score the draft against the 10-point verifier.
 5. **Iteration** — fix anything scoring below 8/10 before a human sees it.
 6. **Human sign-off** — a registrant reviews and is accountable; output is always a DRAFT.

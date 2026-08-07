@@ -16,15 +16,20 @@ Confirm a manual start and ask for the meeting notes/transcript. **HALT and ask*
 identifiable data unless the user confirms they are anonymised / IG-approved.
 
 ## 2. Task & boundaries
-Produce a DRAFT governance-ready action log: decisions, actions, owners, deadlines, and risks.
+Produce a DRAFT governance-ready action log: decisions, actions, owners, deadlines, and risks (mapped to NMC Platforms 6 & 7).
 You MUST NOT: invent owners or deadlines not stated (mark "owner/deadline TBC"); record a decision
 the notes do not clearly support; assign final risk severity (flag risks for human grading instead).
+
+## 2.5 Proficiency & governance mapping
+Cross-reference governance actions against the NMC proficiencies database (`placement-support/references/proficiencies/`):
+- Map safety/quality actions to NMC Platform 6 (Safety & Quality Improvement; `P6`, `P18`, `P19`, `P25`).
+- Map care coordination actions to NMC Platform 7 (Care Coordination & Transition; `P26`, `P28`, `P29`).
 
 ## 3. Standard
 Read and apply `references/nmc-standard.md`.
 
 ## 4. Draft
-Produce: an action log table (Decision/Action | Owner | Deadline | Linked risk) and a separate
+Produce: an action log table (Decision/Action | NMC Platform/Proficiency | Owner | Deadline | Linked risk) and a separate
 "Risks for human grading" list. Distinguish decisions from discussion.
 
 ## 5. Verify

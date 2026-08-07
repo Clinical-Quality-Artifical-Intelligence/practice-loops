@@ -88,7 +88,7 @@ Trigger          ← Assess: you provide raw notes / context
    ↓
 Task & Diagnosis ← 🛑 GATE 1: Nurse validates problem identification & reasoning
    ↓
-Standard         ← Plan: loop anchors to NMC standards / policy
+Standard         ← Plan: loop anchors to NMC Standards of Proficiency database
    ↓
 Verification     ← Evaluate: Claude scores itself /10; retries if < 8
    ↓
@@ -98,6 +98,26 @@ Human Sign-Off   ← 🛑 GATE 2: YOU review and approve final draft
    ↓
 Audit Trail      ← Full record committed to disk
 ```
+
+---
+
+## 📚 NMC Proficiency Database & Assessment Methods
+
+Practice Loops features an embedded **NMC (2018) Standards of Proficiency Reference Database** ([`plugins/practice-loops/skills/placement-support/references/proficiencies/`](plugins/practice-loops/skills/placement-support/references/proficiencies/)) derived from the *NMC Future Nurse Proficiencies*.
+
+Every Practice Loop automatically maps clinical actions, learning needs, reflections, and governance items to:
+- **29 Year 1 / Part 1 Proficiencies** (Guided participation in care)
+- **12+ Year 2 / Part 2 Proficiencies** (Active participation with minimal guidance)
+- **7 Year 3 / Part 3 Proficiencies** (Autonomous practice & team leadership)
+- **Safety-Critical Skill Rules (`*`)**: Invasive procedures (e.g. self-harm risk, end-of-life care, ANTT, NGT insertion) require continuous direct supervision even after passing.
+
+### 5 Valid NMC Assessment Methods
+AI outputs explicitly assign valid assessment methods based on NMC regulatory guidance:
+1. **Direct Observation**: Real-time physical skill demonstration
+2. **Discussion**: Clinical reasoning, legal frameworks, and ethical rationale
+3. **Simulation**: Experiential lab scenarios, role-play, and emergency simulation
+4. **Spoke Placement**: Specialist or cross-area learning opportunities
+5. **Feedback**: Input from service users, carers, and multi-disciplinary team members
 
 ---
 
