@@ -1,8 +1,9 @@
 # Practice Loop run artifacts (local; may contain working clinical/education data)
 practice-loop-audit/
 
-# Large source decks — kept locally under docs/framework, excluded from the published repo
+# Large source decks & tools — kept locally, excluded from published repo
 docs/framework/*.pdf
+*.docx
 
 # Word lock/temp files
 ~$*
