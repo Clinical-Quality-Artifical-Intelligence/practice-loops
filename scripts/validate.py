@@ -27,6 +27,14 @@ if pj.exists():
         check(f in d, f"plugin.json: missing '{f}'")
     check(d.get("name") == "practice-loops", "plugin.json: name must be 'practice-loops'")
 
+# package.json
+pkg = ROOT / "package.json"
+check(pkg.exists(), "missing package.json")
+if pkg.exists():
+    d = json.loads(pkg.read_text())
+    check("name" in d, "package.json: missing 'name'")
+    check(d.get("name") == "@clinical-quality-artifical-intelligence/practice-loops", "package.json: name must be '@clinical-quality-artifical-intelligence/practice-loops'")
+
 # skills: each skills/<x>/SKILL.md must have YAML frontmatter with a description
 skills_dir = PLUGIN / "skills"
 if skills_dir.exists():

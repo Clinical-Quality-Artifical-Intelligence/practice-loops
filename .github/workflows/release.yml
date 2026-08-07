@@ -1,0 +1,72 @@
+name: Release & Publish Package
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      packages: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20.x"
+          registry-url: "https://npm.pkg.github.com"
+          scope: "@clinical-quality-artifical-intelligence"
+
+      - name: Run Plugin Structure Validation
+        run: python3 scripts/validate.py
+
+      - name: Run Static Guardrail Evals
+        run: python3 scripts/check_guardrails.py
+
+      - name: Build Plugin Zip Bundle
+        run: |
+          mkdir -p dist
+          zip -r dist/practice-loops-plugin.zip plugins/ .claude-plugin/ docs/ README.md LICENSE
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/practice-loops-plugin.zip
+          name: Release ${{ github.ref_name }}
+          body: |
+            ## 🩺 Practice Loops for Nursing — ${{ github.ref_name }}
+            
+            Safe, governed AI practice loops for nurses mapped to NMC (2018) Standards of Proficiency.
+            
+            ### Included Features:
+            - **12 Bounded Practice Loops** (placement support, preceptorship, clinical supervision, EDI, teaching, action tracking, etc.)
+            - **NMC Proficiency Reference Database** (29 Year 1, 12+ Year 2, 7 Year 3 proficiencies)
+            - **5 Valid Assessment Methods** (Direct Observation, Discussion, Simulation, Spoke Placement, Feedback)
+            - **Dual-Gate Governance Architecture** (Gate 1: Diagnostic Reasoning; Gate 2: Final DRAFT Sign-Off)
+            - **Automated Audit Logging** (`./practice-loop-audit/`)
+            
+            ### Installation:
+            ```bash
+            /plugin install https://github.com/Clinical-Quality-Artifical-Intelligence/practice-loops
+            ```
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Publish to GitHub Packages (npm registry)
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

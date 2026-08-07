@@ -1,0 +1,46 @@
+{
+  "name": "@clinical-quality-artifical-intelligence/practice-loops",
+  "version": "0.1.0",
+  "description": "Safe, governed AI practice loops for nursing mapped to NMC standards.",
+  "main": "plugins/practice-loops/.claude-plugin/plugin.json",
+  "scripts": {
+    "validate": "python3 scripts/validate.py && python3 scripts/check_guardrails.py",
+    "test": "npm run validate"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Clinical-Quality-Artifical-Intelligence/practice-loops.git"
+  },
+  "keywords": [
+    "claude-code",
+    "claude-plugin",
+    "antigravity",
+    "nursing",
+    "nmc-proficiencies",
+    "adpie",
+    "clinical-governance",
+    "practice-loops",
+    "ai-safety"
+  ],
+  "author": "Clinical Quality Artificial Intelligence",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/Clinical-Quality-Artifical-Intelligence/practice-loops/issues"
+  },
+  "homepage": "https://github.com/Clinical-Quality-Artifical-Intelligence/practice-loops#readme",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "files": [
+    ".claude-plugin/",
+    "plugins/",
+    "docs/",
+    "scripts/",
+    "evals/",
+    "examples/",
+    "SECURITY.md",
+    "ADPIE-DUAL-GATE-GOVERNANCE.md",
+    "LICENSE",
+    "README.md"
+  ]
+}
