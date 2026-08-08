@@ -14,7 +14,7 @@ def check(cond, msg):
 mk = ROOT / ".claude-plugin" / "marketplace.json"
 check(mk.exists(), "missing .claude-plugin/marketplace.json")
 if mk.exists():
-    d = json.loads(mk.read_text())
+    d = json.loads(mk.read_text(encoding="utf-8"))
     check("name" in d, "marketplace.json: missing 'name'")
     check(isinstance(d.get("plugins"), list) and d["plugins"], "marketplace.json: 'plugins' must be a non-empty list")
 
@@ -22,7 +22,7 @@ if mk.exists():
 pj = PLUGIN / ".claude-plugin" / "plugin.json"
 check(pj.exists(), "missing plugin.json")
 if pj.exists():
-    d = json.loads(pj.read_text())
+    d = json.loads(pj.read_text(encoding="utf-8"))
     for f in ("name", "description", "version"):
         check(f in d, f"plugin.json: missing '{f}'")
     check(d.get("name") == "practice-loops", "plugin.json: name must be 'practice-loops'")
@@ -31,7 +31,7 @@ if pj.exists():
 pkg = ROOT / "package.json"
 check(pkg.exists(), "missing package.json")
 if pkg.exists():
-    d = json.loads(pkg.read_text())
+    d = json.loads(pkg.read_text(encoding="utf-8"))
     check("name" in d, "package.json: missing 'name'")
     check(d.get("name") == "@clinical-quality-artifical-intelligence/practice-loops", "package.json: name must be '@clinical-quality-artifical-intelligence/practice-loops'")
 
@@ -42,7 +42,7 @@ if skills_dir.exists():
         md = sk / "SKILL.md"
         check(md.exists(), f"{sk.name}: missing SKILL.md")
         if md.exists():
-            text = md.read_text()
+            text = md.read_text(encoding="utf-8")
             m = re.match(r"^---\n(.*?)\n---\n", text, re.S)
             check(bool(m), f"{sk.name}: SKILL.md missing YAML frontmatter")
             if m:
@@ -84,7 +84,7 @@ if mem_dir.exists():
     check((mem_dir / "README.md").exists(), "missing practice-loop-memory/README.md")
     check((mem_dir / "schema.json").exists(), "missing practice-loop-memory/schema.json")
     if (mem_dir / "schema.json").exists():
-        schema = json.loads((mem_dir / "schema.json").read_text())
+        schema = json.loads((mem_dir / "schema.json").read_text(encoding="utf-8"))
         check("properties" in schema, "schema.json: missing 'properties' key")
         check("learner_pseudonym" in schema.get("properties", {}), "schema.json: missing 'learner_pseudonym' property")
 

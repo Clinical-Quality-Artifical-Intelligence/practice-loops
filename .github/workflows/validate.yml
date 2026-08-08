@@ -8,16 +8,24 @@ on:
 
 jobs:
   validate:
-    runs-on: ubuntu-latest
+    # Run on both platforms: the project targets nurse citizen-developers, who are
+    # predominantly on Windows. Ubuntu alone hides locale-encoding bugs, because
+    # Python defaults to UTF-8 there and to cp1252 on Windows.
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.x"
+      # Use `python`, not `python3`: setup-python provides `python` on every runner,
+      # whereas `python3` does not resolve on Windows.
       - name: Validate plugin structure
-        run: python3 scripts/validate.py
+        run: python scripts/validate.py
       - name: Check loop guardrails (static eval)
-        run: python3 scripts/check_guardrails.py
+        run: python scripts/check_guardrails.py
       - name: Validate manifests are valid JSON
-        run: |
-          python3 -c "import json,sys; json.load(open('.claude-plugin/marketplace.json')); json.load(open('plugins/practice-loops/.claude-plugin/plugin.json')); print('manifests OK')"
+        run: python scripts/check_manifests.py
