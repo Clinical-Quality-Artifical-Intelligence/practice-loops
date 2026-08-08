@@ -58,6 +58,17 @@ def main(argv):
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     out = OUT_DIR / (src.stem + ".docx")
 
+    # Word holds an exclusive lock on an open .docx, and pandoc reports that as a
+    # Haskell backtrace ending in "withBinaryFile: permission denied", which does not
+    # tell the reader to close the document. Check first and say so plainly.
+    if out.exists():
+        try:
+            out.open("ab").close()
+        except PermissionError:
+            die(f"cannot write {out.name} — it is open in another program.\n"
+                f"  Close it in Word (or whatever has it open) and run again.\n"
+                f"  Full path: {out}")
+
     # yaml_metadata_block makes the YAML front matter become the document title
     # block instead of being rendered as body text; smart gives proper quotes and
     # dashes. --standalone is what emits the title block at all.

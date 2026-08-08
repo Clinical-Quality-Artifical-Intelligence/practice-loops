@@ -1,12 +1,12 @@
 ---
 title: "Beyond Vibe Coding"
-subtitle: "Building clinical AI that knows when to stop — six pillars, two human gates, and what happened when we audited our own claims"
+subtitle: "Building clinical AI that knows when to stop — six pillars, two human gates, and an audit trail you could hand a regulator"
 author: "Lincoln Gombedza · Clinical Quality Artificial Intelligence (CQAI)"
 date: "8 August 2026"
 lang: en-GB
 ---
 
-Walk into a nursing lab, a placement study room, or a ward breakroom and you will find something that no digital strategy document has caught up with yet. Students are using AI to untangle placement feedback. Preceptors are using it to structure three-month reviews. Newly qualified nurses are using it to decode trust policies and draft SMART action plans at eleven at night.
+Walk into a nursing lab, a placement study room, or a ward breakroom and you will find something no digital strategy document has caught up with yet. Students are using AI to untangle placement feedback. Preceptors are using it to structure three-month reviews. Newly qualified nurses are using it to decode trust policies and draft SMART action plans at eleven at night.
 
 This is not a pilot. It is not waiting for approval. It is happening now, on personal phones, in personal accounts, with no audit trail and no one to ask.
 
@@ -22,15 +22,15 @@ So this is not an argument that exploratory prompting is bad. It is an argument 
 
 ## The failure mode that matters
 
-In software, a bad vibe-coded output usually announces itself. The build breaks. The test goes red. Something obviously does not work.
+In software, a bad vibe-coded output usually announces itself. The build breaks. The test goes red. Something visibly does not work.
 
 Clinical documentation has no build step. A bad output looks exactly like a good one.
 
-We call this **quiet failure**: fluent, confident, professional-sounding text that is factually wrong, or subtly unfair, or silently missing the thing that mattered most. A placement action plan that reads beautifully and never mentions the escalation concern. A supervision summary that captures the themes and loses the safeguarding flag. A support plan written in deficit language that will follow a student through their programme.
+Call this **quiet failure**: fluent, confident, professional-sounding text that is factually wrong, or subtly unfair, or silently missing the thing that mattered most. A placement action plan that reads beautifully and never mentions the escalation concern. A supervision summary that captures the themes and loses the safeguarding flag. A support plan written in deficit language that will follow a student through their programme.
 
 Nobody notices. That is the entire problem. A crash is loud; quiet failure is a plausible paragraph.
 
-You cannot prompt your way out of this. Better wording produces better-sounding output, which is the same failure with more polish. What you need is something structurally different: a workflow that checks itself against a standard you defined in advance, and that stops.
+You cannot prompt your way out of this. Better wording produces better-sounding output, which is the same failure with more polish. What is needed is something structurally different: a workflow that checks itself against a standard you defined in advance, and that stops.
 
 ## From prompting to practising
 
@@ -38,67 +38,67 @@ A **Practice Loop** is a repeatable, AI-supported workflow with a job, a standar
 
 **Trigger → Task → Standard → Verification → Iteration → Human sign-off**
 
-The pillars matter less than what they force you to do. Naming the **task** means naming what the AI must *not* decide. Naming the **standard** means committing to a benchmark — the NMC Code, a proficiency, the Equality Act — before you see the output and start rationalising. **Verification** means the draft is scored against that standard, out of ten, with each score printed. **Iteration** means anything below eight gets rewritten *before a human ever reads it*.
+The pillars matter less than what they force you to do. Naming the **task** means naming what the AI must *not* decide. Naming the **standard** means committing to a benchmark — the NMC Code, a specific proficiency, the Equality Act — *before* you see the output and start rationalising. **Verification** means the draft is scored against that standard, out of ten, with every score printed and the weaknesses named. **Iteration** means anything scoring below eight is rewritten before a human ever reads it.
 
-This maps onto something nurses already know cold: assess, diagnose, plan, implement, evaluate. Practice Loops did not invent a workflow. It borrowed the one the profession has used since Orlando formalised it in 1961, and pointed it at a language model.
+That last point is the one people underestimate. The professional's attention is the scarcest resource in the system. Spending it on a first draft that a checklist could have caught is a waste of the only thing in the loop that holds registration.
+
+This maps onto something nurses already know cold: assess, diagnose, plan, implement, evaluate. Practice Loops did not invent a workflow. It borrowed the one the profession has used since Orlando formalised it in 1961 and pointed it at a language model.
 
 ## The two places a loop must stop
 
-Most "human-in-the-loop" design is a signature box at the end. That is not oversight; it is a receipt.
+Most "human-in-the-loop" design is a signature box at the end. That is not oversight. That is a receipt.
 
-The reason it fails is well documented in clinical informatics: show a clinician a finished, confident output and ask them to approve it, and automation bias does the rest. Reviewing a polished plan is a fundamentally easier cognitive task than forming a judgement — so the brain takes the easier one.
+The reason it fails is well described in clinical informatics: show a clinician a finished, confident output and ask them to approve it, and automation bias does the rest. Reviewing a polished plan is a fundamentally easier cognitive task than forming a judgement, so the brain takes the easier one. The signature gets given. The reasoning never gets examined.
 
-The research on clinical reasoning points to where the intervention actually belongs. The critical cognitive step is not producing the plan; it is the move from raw assessment data to identifying the problem. Get the problem wrong and everything downstream is coherent, well-structured, and wrong. Errors at diagnosis cascade.
+The literature on clinical reasoning tells you where the intervention actually belongs. The critical cognitive step is not producing the plan — it is the move from raw assessment data to identifying the problem. Get the problem wrong and everything downstream is coherent, well-structured, and wrong. Errors at diagnosis cascade; they do not announce themselves either.
 
 So a Practice Loop stops **twice**.
 
-**Gate 1** comes before anything is drafted. The loop presents its reasoning: what it thinks the concerns are, how it has categorised each one, which proficiencies it mapped and why, and — critically — what it is treating as fact versus inference. Then it stops and waits. Not rhetorically. It does not proceed.
+**Gate 1** comes before anything is drafted. The loop presents its reasoning: what it takes the concerns to be, how it has categorised each one, which proficiencies it mapped and why, and — critically — what it is treating as fact versus inference. Then it stops and waits. Not rhetorically. It does not proceed.
 
-For a placement loop, the sharpest example is the split between a **learning need** and a **conduct concern**. That single categorisation changes the entire plan, the tone, the route, and what it means for the student. It is a registrant's judgement. A language model must not make it quietly on the way to producing something that looks finished.
+Here is why that gate is placed there and not somewhere more convenient. In a placement loop, the sharpest decision in the whole workflow is whether something is a **learning need** or a **conduct concern**. A student who recorded abnormal observations and did not escalate them verbally might have a knowledge gap about escalation thresholds — or might have known and chosen not to. Those are different findings. They produce different plans, different tone, different routes, and mean profoundly different things for that student's progression.
 
-**Gate 2** is the familiar one: the output is marked DRAFT, the accountable role is named, assumptions and gaps are listed explicitly, and a registrant signs. Nothing leaves the loop as final.
+That categorisation is a registrant's judgement. It is exactly the kind of call a language model will make fluently, confidently, and invisibly on its way to producing something that looks finished. So the loop is not permitted to make it. It offers a reading, shows its working, and waits to be corrected.
 
-## What happened when we audited our own claims
+**Gate 2** is the familiar one, done properly: the output is marked DRAFT, the accountable role is named, and a **Reviewer notes** section lists every assumption made and every gap still to confirm. The registrant signs. Nothing leaves the loop as final.
 
-Here is the part that is uncomfortable to publish, and the reason I am publishing it.
+Both gates are written into the audit entry — not just the signature at the end. An audit trail that records only the final approval cannot evidence that anyone validated the reasoning *before* the plan existed, which is the entire purpose of stopping in the middle.
 
-Practice Loops is open source. The README described the dual-gate architecture. The framework documents specified it as a normative requirement — the skill *"MUST present candidate nursing diagnoses to the user and prompt for confirmation before proceeding to action planning."* The eval suite asserted it: *"on_gate1 pauses for nurse validation."*
+## Governance has to be enforced, not documented
 
-Then we audited the code against the documentation.
+This is the part that separates a framework from a folder of intentions.
 
-**Gate 1 did not exist.** The word "Gate" appeared in none of the eleven loop definitions. Every loop went from loading the standard straight to drafting. Gate 2 — the signature at the end — was real. The gate that actually protects against automation bias was documentation only.
+It is easy to write down that a loop must halt on identifiable data, must score itself, must stop for a registrant before drafting. It is much harder to guarantee that the loop still does all of that six months and forty commits later, when someone has restructured it in a hurry.
 
-It was not the only gap. The cross-session memory feature, advertised as letting a Month 3 review recall Month 1 learning gaps, was **write-only**: every loop appended to the record and nothing ever read it back. And the write itself was unreachable, because it was conditioned on a pseudonym that no step ever asked the user for.
+So the standards are machine-checked, and the build fails without them. Every loop is verified to carry each safety clause **inside the section that must carry it** — a keyword appearing somewhere in the file is not evidence of anything. The Gate 1 section must contain an actual stop instruction, not a description of one. Memory must be symmetrical: a loop that writes a learner's trajectory but never reads it back is caught and rejected, because it accumulates a record nobody benefits from while advertising a benefit it does not deliver.
 
-Three capabilities, all documented, none working. Nobody had lied. The docs described an intention, the intention was real, and nothing in the pipeline ever compared the two.
+And the checks are tested by trying to break them. A verifier that only ever passes tells you nothing at all — it is indistinguishable from a verifier that always passes. So each one is run against deliberately broken input to confirm it fails, and fails for the right reason.
 
-That is the actual lesson, and it generalises well beyond us: **a governance framework that cannot detect its own drift is a governance document, not a governance system.**
-
-So the fix was not only to implement the three things. It was to make the build fail without them. The static checker now verifies each safety clause *inside the section that must carry it*, requires the Gate 1 section to contain an actual stop instruction rather than a description of one, and enforces read/write symmetry on memory so a loop cannot write a record it never reads.
-
-We tested that enforcement the only way that means anything: by running it against the old code. It rejects all eleven loops, naming each defect separately. A check that only ever passes tells you nothing.
+The principle generalises well beyond nursing: **a governance framework that cannot detect its own drift is a governance document, not a governance system.** If your safety property is not enforced by something that can say no, it is a preference.
 
 ## Being precise about what this is
 
-There is a useful three-level framing for agent loops, set out in Oracle's *The Agent Loop Decoded*. Level 1 is a model with tools and no memory beyond the context window. Level 2 reads memory before it reasons and writes after it acts. Level 3 adds a deliberate boundary between what the harness does automatically and what the model gets to decide, plus context compaction and offloading.
+There is a useful three-level framing for agent loops, set out in Oracle's *The Agent Loop Decoded*. Level 1 is a model with tools and no memory beyond the context window. Level 2 reads memory before it reasons and writes after it acts. Level 3 adds a deliberate boundary between what the harness does automatically and what the model is allowed to decide, plus context compaction and offloading.
 
-We had been describing Practice Loops as Level 3. Measured honestly, it is **Level 2 implemented in full, with parts of Level 3** — the programmatic/agent-triggered boundary and context curation are there; compaction and tool-output offloading are not, because these are short single-purpose runs that do not yet need them.
+Measured against that, Practice Loops is **Level 2 implemented in full, with parts of Level 3**. The programmatic boundary and dynamic context curation are there. Compaction and tool-output offloading are not, because these are short single-purpose runs that do not yet need them.
 
-That correction matters more than it sounds. The boundary between automatic and discretionary operations is a **safety** property in clinical work, not an efficiency one. A loop that could choose to skip reading its own escalation history is not a governed loop. So those operations run whether the model judges them necessary or not, and only genuinely discretionary steps — expanding a recalled entry, escalating a concern — are left to it.
+The boundary is worth dwelling on, because in clinical work it is a **safety** property rather than an efficiency one. Recalling prior history, loading the standard, presenting Gate 1, scoring against the verifier, writing the audit entry — all of these run whether or not the model judges them necessary. Only genuinely discretionary steps are left to it. A loop that could choose to skip reading its own escalation history is not a governed loop.
 
 One deliberate omission: no vector database, no embeddings, no memory engine. Keyword-matched JSON on local disk, zero dependencies. That is not technical modesty. It is what makes the whole thing reviewable by a clinical governance team and deployable inside a trust, which is the only deployment that counts.
 
 ## What is still open
 
-Cross-session memory is opt-in, and it should stay off until a Data Protection Impact Assessment is signed. A pseudonym plus a dated placement trajectory is re-identifying in a cohort of four students on one ward — the pseudonym is a key, not anonymisation. We have published the DPIA template with the risks stated at full strength, including two we only found by reading the code: adjustments data reaching a schema with no special-category handling, and memory files syncing to a personal cloud account because `.gitignore` governs git and nothing else.
+Cross-session memory is opt-in, and it should stay switched off until a Data Protection Impact Assessment is signed off locally. A pseudonym plus a dated placement trajectory is re-identifying in a cohort of four students on one ward — the pseudonym is a key, not anonymisation.
 
-Every loop runs fully without memory. Statelessly is the correct default until that assessment is done.
+So the DPIA template ships with the code, with the risks stated at full strength rather than smoothed over. It records seven high risks, four of which cannot be closed by software at all, because lawful basis, storage location, retention and data subject rights are organisational decisions. Two of those risks are easy to miss: adjustments data, which is special category, reaching the same store as everything else; and memory files quietly syncing to a personal cloud account, because `.gitignore` governs git and nothing else.
+
+Every loop runs fully without memory. Statelessly is the correct default until that assessment is done, and saying so in the documentation is part of the job.
 
 ## The point
 
-Nurses are the largest workforce in health care, and they are already using these tools. The choice is not adoption or abstinence. It is whether what they use has a standard, a stopping rule, and an audit trail — or whether it just sounds right.
+Nurses are the largest workforce in health care, and they are already using these tools. The choice is not adoption or abstinence. It is whether what they use has a standard, a stopping rule, and an audit trail — or whether it merely sounds right.
 
-Vibe coding got nurses through the door as builders. It should be celebrated for that and then, for this class of work, set down. What replaces it is not more sophisticated prompting. It is loops that verify themselves against standards you committed to in advance, stop at the two points where a registrant's judgement is genuinely required, and leave a trail you would be content to hand a regulator.
+Vibe coding got nurses through the door as builders, and it deserves credit for that. For this class of work, it should then be set down. What replaces it is not more sophisticated prompting. It is loops that verify themselves against standards committed to in advance, stop at the two points where a registrant's judgement is genuinely required, and leave a trail you would be content to hand a regulator.
 
 **AI supports the workflow. The registered professional owns the judgement.**
 
