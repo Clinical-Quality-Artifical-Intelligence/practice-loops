@@ -20,6 +20,10 @@ docs/framework/*.pdf
 .DS_Store
 ._*
 
+# Build output: the release workflow's plugin zip and Pandoc's article .docx.
+# The Markdown source is the artefact of record; built documents are disposable.
+dist/
+
 # Superseded infographic, kept locally. Replaced by Nursing-LOOPS-infographic-v3.svg:
 # v2 had "Level 3 Agent Architecture" and a garbled six-pillar ring baked into the pixels,
 # so it could not be corrected by editing text.

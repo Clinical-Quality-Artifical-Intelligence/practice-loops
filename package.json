@@ -5,7 +5,8 @@
   "main": "plugins/practice-loops/.claude-plugin/plugin.json",
   "scripts": {
     "validate": "python scripts/validate.py && python scripts/check_guardrails.py && python scripts/check_manifests.py",
-    "test": "npm run validate"
+    "test": "npm run validate",
+    "build:article": "python scripts/build_article.py"
   },
   "repository": {
     "type": "git",
