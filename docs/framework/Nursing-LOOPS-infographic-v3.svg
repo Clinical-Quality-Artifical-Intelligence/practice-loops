@@ -1,0 +1,132 @@
+<svg viewBox="0 0 900 580" xmlns="http://www.w3.org/2000/svg" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif" role="img">
+<title>Practice Loops for Nursing — a governed agent loop</title>
+<desc>The six pillars of a practice loop shown as a cycle (trigger, task, standard, verification, iteration, human sign-off), with the one-shot prompt on the left and human accountability on the right. Below: the five lifecycle phases from on_intake to on_commit, including the two human governance gates, and the components a loop needs — memory read and written, context curation, a separate verifier, the NMC standard, a stop condition, an audit trail, and governance analytics.</desc>
+<defs>
+<marker id="ah" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#5F5E5A"/></marker>
+<marker id="aht" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#0F6E56"/></marker>
+</defs>
+
+<rect x="0" y="0" width="900" height="580" fill="#F7F6F2"/>
+
+<text x="450" y="40" text-anchor="middle" font-size="27" font-weight="600" fill="#2C2C2A">Practice Loops for Nursing</text>
+<text x="450" y="63" text-anchor="middle" font-size="13.5" fill="#5F5E5A">six pillars · two human gates · memory on disk · an audit trail you can show a regulator</text>
+
+<!-- LEFT: the one-shot prompt -->
+<rect x="20" y="92" width="170" height="176" rx="12" fill="#F1EFE8" stroke="#888780"/>
+<text x="105" y="116" text-anchor="middle" font-size="14.5" font-weight="600" fill="#2C2C2A">the prompt</text>
+<text x="105" y="132" text-anchor="middle" font-size="10.5" fill="#5F5E5A">one shot, no memory</text>
+<rect x="36" y="142" width="138" height="28" rx="6" fill="#FFFFFF" stroke="#B4B2A9"/>
+<text x="105" y="161" text-anchor="middle" font-size="12" fill="#2C2C2A">ask</text>
+<rect x="36" y="180" width="138" height="28" rx="6" fill="#FFFFFF" stroke="#B4B2A9"/>
+<text x="105" y="199" text-anchor="middle" font-size="12" fill="#2C2C2A">answer</text>
+<rect x="36" y="218" width="138" height="28" rx="6" fill="#FFFFFF" stroke="#B4B2A9"/>
+<text x="105" y="237" text-anchor="middle" font-size="12" fill="#2C2C2A">stop — nothing kept</text>
+<line x1="105" y1="171" x2="105" y2="179" stroke="#5F5E5A" stroke-width="1.4" marker-end="url(#ah)"/>
+<line x1="105" y1="209" x2="105" y2="217" stroke="#5F5E5A" stroke-width="1.4" marker-end="url(#ah)"/>
+
+<!-- RIGHT: human accountability -->
+<rect x="710" y="92" width="170" height="176" rx="12" fill="#FAECE7" stroke="#D85A30"/>
+<text x="795" y="116" text-anchor="middle" font-size="14.5" font-weight="600" fill="#712B13">human sign-off</text>
+<text x="795" y="132" text-anchor="middle" font-size="10.5" fill="#993C1D">you stay accountable</text>
+<rect x="726" y="142" width="138" height="28" rx="6" fill="#FFFFFF" stroke="#F0997B"/>
+<text x="795" y="161" text-anchor="middle" font-size="12" fill="#712B13">review the DRAFT</text>
+<rect x="726" y="180" width="138" height="28" rx="6" fill="#FFFFFF" stroke="#F0997B"/>
+<text x="795" y="199" text-anchor="middle" font-size="12" fill="#712B13">correct or reject</text>
+<rect x="726" y="218" width="138" height="28" rx="6" fill="#FFFFFF" stroke="#F0997B"/>
+<text x="795" y="237" text-anchor="middle" font-size="12" fill="#712B13">sign — accountable</text>
+<line x1="795" y1="171" x2="795" y2="179" stroke="#5F5E5A" stroke-width="1.4" marker-end="url(#ah)"/>
+<line x1="795" y1="209" x2="795" y2="217" stroke="#5F5E5A" stroke-width="1.4" marker-end="url(#ah)"/>
+
+<!-- CENTRE: the six pillars, in order, once each -->
+<circle cx="450" cy="232" r="120" fill="none" stroke="#CFE9DF" stroke-width="1.2" stroke-dasharray="3 5"/>
+
+<rect x="406" y="96" width="88" height="32" rx="8" fill="#E1F5EE" stroke="#1D9E75"/>
+<text x="450" y="117" text-anchor="middle" font-size="12.5" fill="#0F6E56">trigger</text>
+
+<rect x="302" y="156" width="88" height="32" rx="8" fill="#E1F5EE" stroke="#1D9E75"/>
+<text x="346" y="177" text-anchor="middle" font-size="12.5" fill="#0F6E56">task</text>
+
+<rect x="302" y="276" width="88" height="32" rx="8" fill="#E1F5EE" stroke="#1D9E75"/>
+<text x="346" y="297" text-anchor="middle" font-size="12.5" fill="#0F6E56">standard</text>
+
+<rect x="406" y="336" width="88" height="32" rx="8" fill="#E1F5EE" stroke="#1D9E75"/>
+<text x="450" y="357" text-anchor="middle" font-size="12.5" fill="#0F6E56">verification</text>
+
+<rect x="510" y="276" width="88" height="32" rx="8" fill="#E1F5EE" stroke="#1D9E75"/>
+<text x="554" y="297" text-anchor="middle" font-size="12.5" fill="#0F6E56">iteration</text>
+
+<rect x="506" y="156" width="96" height="32" rx="8" fill="#FAECE7" stroke="#D85A30"/>
+<text x="554" y="177" text-anchor="middle" font-size="11.5" fill="#712B13">sign-off</text>
+
+<path d="M409.0,119.2 A120,120 0 0,0 372.9,140.1" fill="none" stroke="#0F6E56" stroke-width="1.6" marker-end="url(#aht)"/>
+<path d="M331.8,211.2 A120,120 0 0,0 331.8,252.8" fill="none" stroke="#0F6E56" stroke-width="1.6" marker-end="url(#aht)"/>
+<path d="M372.9,323.9 A120,120 0 0,0 409.0,344.8" fill="none" stroke="#0F6E56" stroke-width="1.6" marker-end="url(#aht)"/>
+<path d="M491.0,344.8 A120,120 0 0,0 527.1,323.9" fill="none" stroke="#0F6E56" stroke-width="1.6" marker-end="url(#aht)"/>
+<path d="M568.2,252.8 A120,120 0 0,0 568.2,211.2" fill="none" stroke="#0F6E56" stroke-width="1.6" marker-end="url(#aht)"/>
+<path d="M527.1,140.1 A120,120 0 0,0 491.0,119.2" fill="none" stroke="#0F6E56" stroke-width="1.6" stroke-dasharray="4 4" marker-end="url(#aht)"/>
+
+<text x="450" y="216" text-anchor="middle" font-size="20" font-weight="600" fill="#04342C">practice loop</text>
+<text x="450" y="235" text-anchor="middle" font-size="10.5" fill="#0F6E56">assess · plan · intervene · evaluate · adjust</text>
+<text x="450" y="252" text-anchor="middle" font-size="10" fill="#5F5E5A">nothing skips verification</text>
+<text x="450" y="267" text-anchor="middle" font-size="9" fill="#888780">dashed: next run starts only after sign-off</text>
+
+<path d="M190,164 C 270,128 340,108 402,112" fill="none" stroke="#5F5E5A" stroke-width="1.4" marker-end="url(#ah)"/>
+<line x1="604" y1="172" x2="708" y2="176" stroke="#5F5E5A" stroke-width="1.4" marker-end="url(#ah)"/>
+
+<!-- LIFECYCLE PHASES -->
+<text x="450" y="404" text-anchor="middle" font-size="12.5" font-weight="600" fill="#5F5E5A">five lifecycle phases — the two gates are stop conditions, not prompts</text>
+
+<rect x="20" y="416" width="164" height="46" rx="8" fill="#E9E7DE" stroke="#888780"/>
+<text x="102" y="434" text-anchor="middle" font-size="11.5" font-weight="600" fill="#2C2C2A">on_intake</text>
+<text x="102" y="450" text-anchor="middle" font-size="9.5" fill="#5F5E5A">HALT on PII · recall</text>
+
+<rect x="192" y="416" width="164" height="46" rx="8" fill="#FAECE7" stroke="#D85A30"/>
+<text x="274" y="434" text-anchor="middle" font-size="11.5" font-weight="600" fill="#712B13">on_gate1 — STOP</text>
+<text x="274" y="450" text-anchor="middle" font-size="9.5" fill="#993C1D">nurse validates reasoning</text>
+
+<rect x="364" y="416" width="164" height="46" rx="8" fill="#E1F5EE" stroke="#1D9E75"/>
+<text x="446" y="434" text-anchor="middle" font-size="11.5" font-weight="600" fill="#0F6E56">on_verify</text>
+<text x="446" y="450" text-anchor="middle" font-size="9.5" fill="#0F6E56">score /10 · iterate below 8</text>
+
+<rect x="536" y="416" width="164" height="46" rx="8" fill="#FAECE7" stroke="#D85A30"/>
+<text x="618" y="434" text-anchor="middle" font-size="11.5" font-weight="600" fill="#712B13">on_gate2 — STOP</text>
+<text x="618" y="450" text-anchor="middle" font-size="9.5" fill="#993C1D">registrant signs the DRAFT</text>
+
+<rect x="708" y="416" width="172" height="46" rx="8" fill="#E9E7DE" stroke="#888780"/>
+<text x="794" y="434" text-anchor="middle" font-size="11.5" font-weight="600" fill="#2C2C2A">on_commit</text>
+<text x="794" y="450" text-anchor="middle" font-size="9.5" fill="#5F5E5A">audit entry · memory write</text>
+
+<line x1="184" y1="439" x2="190" y2="439" stroke="#5F5E5A" stroke-width="1.4" marker-end="url(#ah)"/>
+<line x1="356" y1="439" x2="362" y2="439" stroke="#5F5E5A" stroke-width="1.4" marker-end="url(#ah)"/>
+<line x1="528" y1="439" x2="534" y2="439" stroke="#5F5E5A" stroke-width="1.4" marker-end="url(#ah)"/>
+<line x1="700" y1="439" x2="706" y2="439" stroke="#5F5E5A" stroke-width="1.4" marker-end="url(#ah)"/>
+
+<!-- WHAT A LOOP NEEDS -->
+<line x1="20" y1="482" x2="880" y2="482" stroke="#D3D1C7" stroke-width="1"/>
+<text x="450" y="502" text-anchor="middle" font-size="12.5" fill="#5F5E5A">what nobody tells you a loop needs</text>
+
+<rect x="20" y="512" width="118" height="32" rx="8" fill="#F6EDD6" stroke="#B08514"/>
+<text x="79" y="527" text-anchor="middle" font-size="10" fill="#6B4E06">memory — read</text>
+<text x="79" y="538" text-anchor="middle" font-size="10" fill="#6B4E06">and written</text>
+
+<rect x="144" y="512" width="118" height="32" rx="8" fill="#F6EDD6" stroke="#B08514"/>
+<text x="203" y="532" text-anchor="middle" font-size="10.5" fill="#6B4E06">context curation</text>
+
+<rect x="268" y="512" width="118" height="32" rx="8" fill="#EEEDFE" stroke="#534AB7"/>
+<text x="327" y="532" text-anchor="middle" font-size="10.5" fill="#26215C">a separate verifier</text>
+
+<rect x="392" y="512" width="118" height="32" rx="8" fill="#EEEDFE" stroke="#534AB7"/>
+<text x="451" y="532" text-anchor="middle" font-size="10.5" fill="#26215C">the NMC standard</text>
+
+<rect x="516" y="512" width="118" height="32" rx="8" fill="#EEEDFE" stroke="#534AB7"/>
+<text x="575" y="532" text-anchor="middle" font-size="10.5" fill="#26215C">a stop condition</text>
+
+<rect x="640" y="512" width="118" height="32" rx="8" fill="#EEEDFE" stroke="#534AB7"/>
+<text x="699" y="532" text-anchor="middle" font-size="10.5" fill="#26215C">an audit trail</text>
+
+<rect x="764" y="512" width="116" height="32" rx="8" fill="#F6EDD6" stroke="#B08514"/>
+<text x="822" y="527" text-anchor="middle" font-size="10" fill="#6B4E06">governance</text>
+<text x="822" y="538" text-anchor="middle" font-size="10" fill="#6B4E06">analytics</text>
+
+<text x="450" y="570" text-anchor="middle" font-size="15" font-weight="600" fill="#2C2C2A">AI supports the workflow. The registered professional owns the judgement.</text>
+</svg>

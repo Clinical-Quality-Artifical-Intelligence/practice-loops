@@ -20,6 +20,11 @@ docs/framework/*.pdf
 .DS_Store
 ._*
 
+# Superseded infographic, kept locally. Replaced by Nursing-LOOPS-infographic-v3.svg:
+# v2 had "Level 3 Agent Architecture" and a garbled six-pillar ring baked into the pixels,
+# so it could not be corrected by editing text.
+docs/framework/Nursing-LOOPS-infographic-v2.jpg
+
 # Python bytecode (scripts/ is importable, so running or importing them writes this)
 __pycache__/
 *.py[cod]
