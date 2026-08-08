@@ -6,7 +6,8 @@
   "scripts": {
     "validate": "python scripts/validate.py && python scripts/check_guardrails.py && python scripts/check_manifests.py",
     "test": "npm run validate",
-    "build:article": "python scripts/build_article.py"
+    "build:article": "python scripts/build_article.py",
+    "build:figures": "python scripts/rasterise_svg.py --all"
   },
   "repository": {
     "type": "git",
