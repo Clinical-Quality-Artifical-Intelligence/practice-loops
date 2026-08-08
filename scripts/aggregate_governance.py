@@ -22,39 +22,109 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 AUDIT_DIR = ROOT / "practice-loop-audit"
 
 
+FLAG_PATTERNS = [
+    (r"(?i)patient.?safety", "Patient Safety"),
+    (r"(?i)safeguarding", "Safeguarding"),
+    (r"(?i)escalat(?:ion|ed|e)", "Escalation"),
+    (r"(?i)wellbeing|well-being", "Wellbeing"),
+    (r"(?i)fitness.?to.?practise", "Fitness to Practise"),
+]
+
+# A bullet that records the ABSENCE of a concern, e.g.
+#   "- **No fitness-to-practise indicator identified.**"
+NEGATED_BULLET = re.compile(r"^\s*[-*+]?\s*\*{0,2}(?:no|none|not|nil)\b", re.I)
+
+
+def extract_section(content, heading_pattern):
+    """Return the body of the first `## <heading>` matching heading_pattern."""
+    lines = content.splitlines()
+    out, capturing = [], False
+    for line in lines:
+        if line.startswith("#"):
+            if capturing:
+                break
+            if re.search(heading_pattern, line, re.I):
+                capturing = True
+            continue
+        if capturing:
+            out.append(line)
+    return "\n".join(out)
+
+
+def parse_scores(content):
+    """Extract the ten verifier scores from each round row of the score table.
+
+    Rows look like:
+        | Round | 1 | 2 | ... | 10 | Min |
+        |-------|---|---|-----|----|-----|
+        | 1     | 9 | 7 | ... | 10 | 7   |
+
+    A naive `\\|\\s*(\\d{1,2})\\s*\\|` over the whole file is wrong three ways: it
+    captures the Round number as a score (reporting a "lowest score" of 1 for a run
+    whose true minimum was 7), it captures the Min column a second time, and because
+    regex matches cannot overlap it silently skips alternate cells. Parse the table
+    structurally instead.
+    """
+    scores = []
+    in_table = False
+    for raw in content.splitlines():
+        line = raw.strip()
+        if not line.startswith("|"):
+            in_table = False
+            continue
+        cells = [c.strip() for c in line.strip("|").split("|")]
+        if cells and cells[0].lower().startswith("round"):
+            in_table = True
+            continue
+        if set("".join(cells)) <= set("-: "):  # header separator row
+            continue
+        if not in_table or len(cells) < 3:
+            continue
+        # First cell is the round number, last is the pre-computed Min.
+        for cell in cells[1:-1]:
+            m = re.fullmatch(r"(\d{1,2})(?:/10)?", cell)
+            if m and 0 <= int(m.group(1)) <= 10:
+                scores.append(int(m.group(1)))
+    return scores
+
+
+def parse_flags(content):
+    """Count flags raised in the Escalations / flags section.
+
+    Scoped to that section, and bullets recording the absence of a concern are
+    skipped. A whole-file keyword search counts "No fitness-to-practise indicator
+    identified" as a fitness-to-practise flag — reporting the opposite of what the
+    registrant actually wrote, in the direction that most alarms a reader.
+    """
+    section = extract_section(content, r"escalation|flags")
+    if not section.strip():
+        section = content  # fall back rather than silently reporting zero
+
+    found = []
+    for raw in section.splitlines():
+        line = raw.strip()
+        if not line or NEGATED_BULLET.match(line):
+            continue
+        for pattern, label in FLAG_PATTERNS:
+            if re.search(pattern, line) and label not in found:
+                found.append(label)
+    return found
+
+
 def parse_audit_file(filepath):
     """Parse a single audit log markdown file and extract structured data."""
     content = filepath.read_text(encoding="utf-8", errors="ignore")
     result = {
         "file": filepath.name,
         "signed_off": True,
-        "scores": [],
-        "safety_flags": [],
+        "scores": parse_scores(content),
+        "safety_flags": parse_flags(content),
         "proficiencies": [],
     }
 
     # Sign-off status
     if "DRAFT" in content and "pending human sign-off" in content:
         result["signed_off"] = False
-
-    # Extract verification scores from table rows (e.g. "| 8/10 |" or "| 7 |")
-    score_matches = re.findall(r"\|\s*(\d{1,2})(?:/10)?\s*\|", content)
-    for s in score_matches:
-        val = int(s)
-        if 0 <= val <= 10:
-            result["scores"].append(val)
-
-    # Safety and escalation flags
-    flag_patterns = [
-        (r"(?i)patient.?safety", "Patient Safety"),
-        (r"(?i)safeguarding", "Safeguarding"),
-        (r"(?i)escalat(?:ion|ed|e)", "Escalation"),
-        (r"(?i)wellbeing|well-being", "Wellbeing"),
-        (r"(?i)fitness.?to.?practise", "Fitness to Practise"),
-    ]
-    for pattern, label in flag_patterns:
-        if re.search(pattern, content):
-            result["safety_flags"].append(label)
 
     # Extract proficiency references (P1 through P29, with optional *)
     profs = re.findall(r"\bP(\d{1,2})\*?\b", content)

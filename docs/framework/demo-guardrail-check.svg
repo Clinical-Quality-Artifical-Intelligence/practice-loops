@@ -1,0 +1,24 @@
+<svg viewBox="0 0 583 328" xmlns="http://www.w3.org/2000/svg" role="img" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, DejaVu Sans Mono, monospace">
+<title>practice-loops $ python scripts/check_guardrails.py</title>
+<desc>Terminal output captured from a real command run: practice-loops $ python scripts/check_guardrails.py</desc>
+<rect x="0" y="0" width="583" height="328" rx="10" fill="#12151A"/>
+<rect x="0" y="0" width="583" height="34" rx="10" fill="#1C2027"/>
+<rect x="0" y="24" width="583" height="10" fill="#1C2027"/>
+<circle cx="18" cy="17" r="5" fill="#E5615A"/>
+<circle cx="36" cy="17" r="5" fill="#D9A94C"/>
+<circle cx="54" cy="17" r="5" fill="#4FC08D"/>
+<text x="72" y="22" font-size="12" fill="#7C8797">practice-loops $ python scripts/check_guardrails.py</text>
+<text x="18" y="61" font-size="13" fill="#D6DAE0" xml:space="preserve">﻿ok   action-tracking: all 10 guardrails present, in-section</text>
+<text x="18" y="80" font-size="13" fill="#4FC08D" xml:space="preserve">ok   clinical-supervision: all 10 guardrails present, in-section</text>
+<text x="18" y="99" font-size="13" fill="#4FC08D" xml:space="preserve">ok   edi-intelligence: all 10 guardrails present, in-section</text>
+<text x="18" y="118" font-size="13" fill="#4FC08D" xml:space="preserve">ok   incident-reflection: all 10 guardrails present, in-section</text>
+<text x="18" y="137" font-size="13" fill="#4FC08D" xml:space="preserve">ok   placement-support: all 10 guardrails present, in-section</text>
+<text x="18" y="156" font-size="13" fill="#4FC08D" xml:space="preserve">ok   policy-to-practice: all 10 guardrails present, in-section</text>
+<text x="18" y="175" font-size="13" fill="#4FC08D" xml:space="preserve">ok   preceptorship: all 10 guardrails present, in-section</text>
+<text x="18" y="194" font-size="13" fill="#4FC08D" xml:space="preserve">ok   reasonable-adjustments-passport: all 10 guardrails present, in-section</text>
+<text x="18" y="213" font-size="13" fill="#4FC08D" xml:space="preserve">ok   reflective-practice: all 10 guardrails present, in-section</text>
+<text x="18" y="232" font-size="13" fill="#4FC08D" xml:space="preserve">ok   revalidation: all 10 guardrails present, in-section</text>
+<text x="18" y="251" font-size="13" fill="#4FC08D" xml:space="preserve">ok   teaching: all 10 guardrails present, in-section</text>
+<text x="18" y="270" font-size="13" fill="#4FC08D" xml:space="preserve">ok   practice-loop-method: red lines documented</text>
+<text x="18" y="308" font-size="13" fill="#4FC08D" xml:space="preserve">All 11 loop skills pass the guardrail check.</text>
+</svg>

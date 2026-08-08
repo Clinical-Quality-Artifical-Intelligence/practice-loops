@@ -16,6 +16,7 @@ Usage:
 
 Requires Pandoc on PATH: winget install --id JohnMacFarlane.Pandoc --scope user
 """
+import os
 import shutil
 import subprocess
 import sys
@@ -77,6 +78,10 @@ def main(argv):
         "-o", str(out),
         "--from", "markdown+yaml_metadata_block+smart",
         "--standalone",
+        # Pandoc resolves relative image paths against the working directory, not the
+        # source file, so ../framework/foo.svg in docs/blog/ would point outside the
+        # repo. Give it both the article's directory and the repo root.
+        "--resource-path", os.pathsep.join([str(src.parent), str(ROOT)]),
     ]
 
     if REFERENCE.exists():

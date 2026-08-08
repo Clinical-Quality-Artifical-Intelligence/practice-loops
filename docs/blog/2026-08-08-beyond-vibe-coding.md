@@ -42,6 +42,22 @@ The pillars matter less than what they force you to do. Naming the **task** mean
 
 That last point is the one people underestimate. The professional's attention is the scarcest resource in the system. Spending it on a first draft that a checklist could have caught is a waste of the only thing in the loop that holds registration.
 
+Here is what that looks like on a real run. These are the verifier scores from an actual placement-support loop over anonymised mid-point review notes, taken from its audit log:
+
+| Round | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | Min |
+|-------|---|---|---|---|---|---|---|---|---|----|-----|
+| 1     | 9 | 7 | 9 | 7 | 9 | 9 | 9 | 9 | 9 | 10 | **7** |
+| 2     | 9 | 9 | 9 | 9 | 9 | 9 | 9 | 9 | 9 | 10 | **9** |
+
+Round one failed on two of the ten points, and the interesting part is *what* it caught:
+
+- **Point 4, SMART actions — 7.** Two actions had no measure. One said the student "prepares in advance for each slot" — no observable output, nobody to check it. Another said the student "can explain the sterile field when asked" — no named assessor, no point of assessment, no record.
+- **Point 2, evidence separated from opinion — 7.** Interpretation had been labelled as interpretation in one concern but silently blended with observation in the other two.
+
+Both are the kind of soft, plausible wording that passes a read-through and falls apart at a progression panel. Round two rewrote them — the vague action became a countable pre-round sheet checked by the supervising nurse, the explanation became something the practice assessor records as met or not yet met in the PAD — and re-scored at a minimum of 9. Two rounds of the maximum three.
+
+No human read the round-one draft. That is the point.
+
 This maps onto something nurses already know cold: assess, diagnose, plan, implement, evaluate. Practice Loops did not invent a workflow. It borrowed the one the profession has used since Orlando formalised it in 1961 and pointed it at a language model.
 
 ## The two places a loop must stop
@@ -64,6 +80,12 @@ That categorisation is a registrant's judgement. It is exactly the kind of call 
 
 Both gates are written into the audit entry — not just the signature at the end. An audit trail that records only the final approval cannot evidence that anyone validated the reasoning *before* the plan existed, which is the entire purpose of stopping in the middle.
 
+Because every run leaves a structured entry on disk, those entries aggregate. A ward or practice education team can ask what is actually happening across a cohort without reading every plan:
+
+![Terminal output of the cohort governance summary: one practice loop run analysed, zero completed sign-offs, one pending DRAFT, Gate 2 compliance 0 percent, average verification score 8.9 out of 10 against a target of 8 or above, lowest 7, highest 10, and two flags raised — Patient Safety and Escalation.](../framework/demo-governance-summary.svg)
+
+That is one run, which is why the numbers are small and the compliance rate is zero — the draft in question is still awaiting its signature, and the report says so rather than rounding it up. Across a cohort the same output shows which proficiencies keep recurring, where verification scores sit against the threshold, and how many runs are still unsigned.
+
 ## Governance has to be enforced, not documented
 
 This is the part that separates a framework from a folder of intentions.
@@ -72,7 +94,15 @@ It is easy to write down that a loop must halt on identifiable data, must score 
 
 So the standards are machine-checked, and the build fails without them. Every loop is verified to carry each safety clause **inside the section that must carry it** — a keyword appearing somewhere in the file is not evidence of anything. The Gate 1 section must contain an actual stop instruction, not a description of one. Memory must be symmetrical: a loop that writes a learner's trajectory but never reads it back is caught and rejected, because it accumulates a record nobody benefits from while advertising a benefit it does not deliver.
 
-And the checks are tested by trying to break them. A verifier that only ever passes tells you nothing at all — it is indistinguishable from a verifier that always passes. So each one is run against deliberately broken input to confirm it fails, and fails for the right reason.
+![Terminal output of the guardrail check: eleven loop skills each reporting "all 10 guardrails present, in-section", the method skill reporting "red lines documented", and a final line reading "All 11 loop skills pass the guardrail check."](../framework/demo-guardrail-check.svg)
+
+That runs on every push, on both Linux and Windows.
+
+And the checks are tested by trying to break them. A verifier that only ever passes tells you nothing at all — it is indistinguishable from a verifier that always passes. So each one is run against deliberately broken loop definitions to confirm that it fails, and fails for the right reason:
+
+![Terminal output showing the guardrail check rejecting deliberately broken loop definitions. Each loop reports three separate failures: missing required section 3.5, writing memory in section 10 without reading it in section 1.5, and using memory while section 1 never asks for a pseudonym.](../framework/demo-negative-test.svg)
+
+Three distinct defects, named separately, per loop. That is the difference between a check and a rubber stamp.
 
 The principle generalises well beyond nursing: **a governance framework that cannot detect its own drift is a governance document, not a governance system.** If your safety property is not enforced by something that can say no, it is a preference.
 
@@ -103,6 +133,8 @@ Vibe coding got nurses through the door as builders, and it deserves credit for 
 **AI supports the workflow. The registered professional owns the judgement.**
 
 ---
+
+**A note on the figures.** Every terminal image here was generated from real command output by piping it through `scripts/render_terminal_svg.py` — you can regenerate any of them by running the command yourself. The verifier scores are lifted from an actual audit log in `practice-loop-audit/`. None of it is a mock-up. That distinction matters more in clinical software than anywhere else: a drawn screenshot can depict a safety feature the code does not have, and no reader can tell the difference.
 
 Practice Loops is open source and free for non-commercial use by NHS trusts, universities, educators and students under the PolyForm Noncommercial 1.0.0 licence.
 
