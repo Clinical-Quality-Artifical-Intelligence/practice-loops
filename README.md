@@ -16,7 +16,7 @@
 
 <br/>
 
-<img src="docs/framework/Nursing-LOOPS-infographic.png" alt="Practice Loops for Nursing — the prompt, the six-stage practice loop (trigger, task, standard, verification, iteration), human sign-off, and the components a loop needs" width="820">
+<img src="docs/framework/Nursing-LOOPS-infographic-v2.jpg" alt="Practice Loops for Nursing — Level 3 Agent Architecture: the six-stage practice loop, lifecycle events (on_intake through on_commit), human sign-off, and what a loop needs including memory on disk, context curation, and governance analytics" width="820">
 
 </div>
 
