@@ -24,6 +24,14 @@ docs/framework/*.pdf
 # The Markdown source is the artefact of record; built documents are disposable.
 dist/
 
+# Superseded demo images, kept locally. Both were mock-ups rather than captures: they
+# depicted a Gate 1 that did not exist yet, a memory write that was unreachable, and a
+# web governance dashboard that has never existed (the aggregator is a CLI that prints
+# markdown). Replaced by demo-*.svg, generated from real command output via
+# scripts/render_terminal_svg.py.
+docs/framework/demo-terminal-cli.jpg
+docs/framework/demo-governance-dashboard.jpg
+
 # Superseded infographic, kept locally. Replaced by Nursing-LOOPS-infographic-v3.svg:
 # v2 had "Level 3 Agent Architecture" and a garbled six-pillar ring baked into the pixels,
 # so it could not be corrected by editing text.
