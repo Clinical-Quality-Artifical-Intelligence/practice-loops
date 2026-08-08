@@ -1,13 +1,13 @@
 <div align="center">
 
-# 🩺 Practice Loops for Nursing
+# 🩺 Practice Loops™ for Nursing
 
 ### Safe, governed AI workflows for nurses — as a Claude Code plugin
 
 *From the [Clinical Quality Artificial Intelligence (CQAI)](https://github.com/Clinical-Quality-Artifical-Intelligence) "Nurse as Citizen Developer" movement.*
 
 [![validate](https://github.com/Clinical-Quality-Artifical-Intelligence/practice-loops/actions/workflows/validate.yml/badge.svg)](https://github.com/Clinical-Quality-Artifical-Intelligence/practice-loops/actions/workflows/validate.yml)
-[![License: Apache-2.0](https://img.shields.io/badge/License-Apache%202.0-1d9e75.svg)](LICENSE)
+[![License: PolyForm Noncommercial](https://img.shields.io/badge/License-PolyForm%20NC%201.0-1d9e75.svg)](LICENSE)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-plugin-da7756.svg)](https://code.claude.com/docs/en/plugins)
 ![Loops](https://img.shields.io/badge/loops-12-026a76.svg)
 ![Status](https://img.shields.io/badge/version-0.1.0-534ab7.svg)
@@ -22,9 +22,9 @@
 
 ---
 
-## What is a Practice Loop?
+## What is a Practice Loop™?
 
-A **Practice Loop** is a repeatable, AI-supported nursing workflow with a *job, a standard, and a stopping rule*. Instead of one-off prompting, each loop drives Claude through six pillars —
+A **Practice Loop™** is a repeatable, AI-supported nursing workflow with a *job, a standard, and a stopping rule*. Instead of one-off prompting, each loop drives Claude through six pillars —
 
 > **Trigger → Task → Standard → Verification → Iteration → Human Sign-Off**
 
@@ -196,7 +196,13 @@ All contributions must:
 
 ## 📜 Licence
 
-[Apache 2.0](LICENSE) — see [NOTICE](NOTICE) for attribution details.
+[PolyForm Noncommercial 1.0.0](LICENSE) — **non-commercial use only**. See [NOTICE](NOTICE) for the licence transition notice and permitted uses.
+
+> Versions up to v0.1.1 were released under Apache 2.0. From 8 August 2026 onward, all new versions are released under PolyForm Noncommercial 1.0.0.
+
+## ™ Trademark
+
+"Practice Loops" is a trademark of Lincoln Gombedza / CQAI. See [TRADEMARK.md](TRADEMARK.md) for usage policy.
 
 ---
 
@@ -206,4 +212,4 @@ See [PRIVACY.md](PRIVACY.md) for data handling principles.
 
 ---
 
-*Built with ❤️ for nursing by the [CQAI](https://github.com/Clinical-Quality-Artifical-Intelligence) "Nurse as Citizen Developer" movement.*
+*Practice Loops™ — built with ❤️ for nursing by the [CQAI](https://github.com/Clinical-Quality-Artifical-Intelligence) "Nurse as Citizen Developer" movement.*

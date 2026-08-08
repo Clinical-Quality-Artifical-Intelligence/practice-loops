@@ -1,14 +1,36 @@
-Practice Loops for Nursing
-Copyright 2026 Clinical Quality Artificial Intelligence (CQAI)
+Practice Loops™ for Nursing
+Copyright 2026 Lincoln Gombedza / Clinical Quality Artificial Intelligence (CQAI)
 
-Practice Loops framework by Lincoln Gombedza.
+"Practice Loops" is a trademark of Lincoln Gombedza / Clinical Quality Artificial Intelligence (CQAI).
+See TRADEMARK.md for usage policy.
 
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
+Licensed under the PolyForm Noncommercial License 1.0.0 (the "License");
+you may not use this software for any commercial purpose.
 You may obtain a copy of the License at
 
-    http://www.apache.org/licenses/LICENSE-2.0
+    https://polyformproject.org/licenses/noncommercial/1.0.0
 
+LICENSE TRANSITION NOTICE
+=========================
+Versions of this software up to and including v0.1.1 (commit 24f18ea,
+8 August 2026) were released under the Apache License, Version 2.0.
+Anyone who obtained or forked the software under that license retains
+those rights for the version they received.
+
+From 8 August 2026 onward, all new versions are released under the
+PolyForm Noncommercial License 1.0.0. Commercial use of any version
+released after this date is prohibited without written permission.
+
+PERMITTED USES (NON-EXHAUSTIVE)
+===============================
+- Personal study, research, and experimentation
+- Academic and educational use (universities, nursing schools)
+- NHS Trust and public health organisation use
+- Charitable and non-profit organisation use
+- Government institution use
+
+NOT A MEDICAL DEVICE
+====================
 This project provides AI-supported workflow scaffolding for nursing
 education and governance. It is not a medical device. Every output is a
 draft pending sign-off by a registered professional, and must not be used
