@@ -10,7 +10,7 @@
 [![License: PolyForm Noncommercial](https://img.shields.io/badge/License-PolyForm%20NC%201.0-1d9e75.svg)](LICENSE)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-plugin-da7756.svg)](https://code.claude.com/docs/en/plugins)
 ![Loops](https://img.shields.io/badge/loops-12-026a76.svg)
-![Status](https://img.shields.io/badge/version-0.1.0-534ab7.svg)
+![Status](https://img.shields.io/badge/version-0.2.0-534ab7.svg)
 ![Human sign‑off](https://img.shields.io/badge/human%20sign--off-required-d85a30.svg)
 [![Security Policy](https://img.shields.io/badge/security-policy-red.svg)](SECURITY.md)
 

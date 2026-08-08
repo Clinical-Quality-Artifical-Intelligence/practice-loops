@@ -1,6 +1,6 @@
 {
   "name": "@clinical-quality-artifical-intelligence/practice-loops",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Safe, governed AI practice loops for nursing mapped to NMC standards.",
   "main": "plugins/practice-loops/.claude-plugin/plugin.json",
   "scripts": {
@@ -23,7 +23,7 @@
     "ai-safety"
   ],
   "author": "Clinical Quality Artificial Intelligence",
-  "license": "Apache-2.0",
+  "license": "PolyForm-Noncommercial-1.0.0",
   "bugs": {
     "url": "https://github.com/Clinical-Quality-Artifical-Intelligence/practice-loops/issues"
   },
