@@ -83,27 +83,33 @@ Every loop ends with a **human sign-off step**. Claude cannot complete a loop wi
 
 ## 🏗️ How It Works: Dual-Gate Architecture & Lifecycle Events
 
-```
-┌──────────────┐    ┌──────────────┐    ┌──────────────┐    ┌──────────────┐    ┌──────────────┐
-│  on_intake   │───►│  on_gate1    │───►│  on_verify   │───►│  on_gate2    │───►│  on_commit   │
-└──────────────┘    └──────────────┘    └──────────────┘    └──────────────┘    └──────────────┘
+Every loop execution flows through **five lifecycle phases** and **two human governance gates**:
 
-Trigger          ← Assess: you provide raw notes / context
-   ↓
-Task & Diagnosis ← 🛑 GATE 1: Nurse validates problem identification & reasoning
-   ↓
-Standard         ← Plan: loop anchors to NMC proficiency index (context curation)
-   ↓
-Verification     ← Evaluate: Claude scores itself /10; retries if < 8
-   ↓
-Iteration        ← Adjust: Claude self-corrects up to 3 times
-   ↓
-Human Sign-Off   ← 🛑 GATE 2: YOU review and approve final draft
-   ↓
-Audit Trail      ← Full record committed to disk
-   ↓
-Memory Update    ← Opt-in: learner trajectory saved to practice-loop-memory/
 ```
+╔══════════════╗    ╔══════════════╗    ╔══════════════╗    ╔══════════════╗    ╔══════════════╗
+║  on_intake   ║───►║  on_gate1    ║───►║  on_verify   ║───►║  on_gate2    ║───►║  on_commit   ║
+╚══════════════╝    ╚══════════════╝    ╚══════════════╝    ╚══════════════╝    ╚══════════════╝
+ PII check &         🛑 GATE 1          Score /10 &          🛑 GATE 2          Audit log &
+ task boundaries     Nurse validates     iterate < 8          Nurse approves      memory update
+                     reasoning                                DRAFT output        (opt-in)
+```
+
+| Step | What Happens | Lifecycle Phase | ADPIE Stage |
+|:---:|---|:---:|:---:|
+| **1. Trigger** | Nurse initiates — **HALT** if identifiable data detected | `on_intake` | Assess |
+| **2. Task** | Bounded job declared; "must NOT decide" boundaries set | `on_intake` | Assess |
+| **3. Standard** | NMC proficiency index lookup (context curation — loads only matched proficiencies) | `on_gate1` | Diagnosis |
+| | 🛑 **GATE 1** — Nurse validates problem identification & diagnostic reasoning | | |
+| **4. Draft** | Output produced (action plan, reflection, review, etc.) | `on_verify` | Plan / Intervene |
+| **5. Verify** | 10-point verifier scores printed, weaknesses named | `on_verify` | Evaluate |
+| **6. Iterate** | Sub-8 scores revised and re-scored (max 3 rounds) | `on_verify` | Adjust |
+| **7. Stop/Escalate** | Halt on safeguarding, patient safety, bias, or insufficient data | `on_gate2` | — |
+| **8. Human Sign-Off** | Output marked **DRAFT — pending human sign-off**; accountable role named | `on_gate2` | — |
+| | 🛑 **GATE 2** — Nurse reviews and approves the final draft | | |
+| **9. Audit Trail** | Timestamped entry written to `./practice-loop-audit/` | `on_commit` | — |
+| **10. Memory Update** | Learner trajectory saved to `./practice-loop-memory/` (opt-in, pseudonymised) | `on_commit` | — |
+
+> Maps to the nursing process: **Assess → Diagnosis (Gate 1) → Plan → Intervene → Evaluate → Final Sign-Off (Gate 2)**
 
 ---
 
