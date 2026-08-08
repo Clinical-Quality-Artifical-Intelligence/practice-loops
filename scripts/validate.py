@@ -77,6 +77,17 @@ if prof_dir.exists():
     for db_file in ("assessment-methods.md", "year-1-proficiencies.md", "year-2-proficiencies.md", "year-3-proficiencies.md"):
         check((prof_dir / db_file).exists(), f"missing proficiency database file: {db_file}")
 
+# practice-loop-memory directory
+mem_dir = ROOT / "practice-loop-memory"
+check(mem_dir.exists(), "missing practice-loop-memory/ directory")
+if mem_dir.exists():
+    check((mem_dir / "README.md").exists(), "missing practice-loop-memory/README.md")
+    check((mem_dir / "schema.json").exists(), "missing practice-loop-memory/schema.json")
+    if (mem_dir / "schema.json").exists():
+        schema = json.loads((mem_dir / "schema.json").read_text())
+        check("properties" in schema, "schema.json: missing 'properties' key")
+        check("learner_pseudonym" in schema.get("properties", {}), "schema.json: missing 'learner_pseudonym' property")
+
 if errors:
     print("VALIDATION FAILED:")
     for e in errors:

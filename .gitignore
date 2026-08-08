@@ -1,6 +1,10 @@
 # Practice Loop run artifacts (local; may contain working clinical/education data)
 practice-loop-audit/
 
+# Practice Loop memory records (local; pseudonymised learner trajectories)
+practice-loop-memory/*.json
+!practice-loop-memory/schema.json
+
 # Large source decks & tools — kept locally, excluded from published repo
 docs/framework/*.pdf
 *.docx

@@ -1,0 +1,99 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Clinical-Quality-Artifical-Intelligence/practice-loops/practice-loop-memory/schema.json",
+  "title": "Practice Loop Learner Memory Record",
+  "description": "Schema for persistent cross-session learner trajectory memory. All data must be pseudonymised — no real names, DOB, NHS numbers, or addresses.",
+  "type": "object",
+  "required": ["learner_pseudonym", "programme_year", "trajectory"],
+  "properties": {
+    "learner_pseudonym": {
+      "type": "string",
+      "description": "A pseudonym or hash provided by the nurse. MUST NOT be a real name or identifier.",
+      "examples": ["student-alpha", "preceptee-B", "cohort2026-03"]
+    },
+    "programme_year": {
+      "type": "integer",
+      "enum": [1, 2, 3],
+      "description": "NMC programme year (1 = guided participation, 2 = active with minimal guidance, 3 = autonomous practice)."
+    },
+    "trajectory": {
+      "type": "array",
+      "description": "Chronological list of Practice Loop session entries for this learner.",
+      "items": {
+        "type": "object",
+        "required": ["date", "loop", "proficiencies_mapped", "scores"],
+        "properties": {
+          "date": {
+            "type": "string",
+            "format": "date",
+            "description": "ISO 8601 date of the loop run (e.g. 2026-08-07)."
+          },
+          "loop": {
+            "type": "string",
+            "description": "The loop skill name that was executed.",
+            "examples": ["placement-support", "preceptorship", "clinical-supervision", "teaching"]
+          },
+          "proficiencies_mapped": {
+            "type": "array",
+            "items": { "type": "string", "pattern": "^P\\d{1,2}\\*?$" },
+            "description": "NMC proficiency numbers mapped during this session (e.g. P7, P10*, P21)."
+          },
+          "scores": {
+            "type": "object",
+            "properties": {
+              "round1_min": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 10,
+                "description": "Lowest 10-point verifier score from round 1."
+              },
+              "final_min": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 10,
+                "description": "Lowest 10-point verifier score from the final round."
+              }
+            },
+            "description": "Verification scores from this session."
+          },
+          "flags": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "Any escalation or safety flags surfaced during this session.",
+            "examples": [["escalation: EWS not acted on"], ["wellbeing: sleep disruption"]]
+          },
+          "learning_gaps": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "Identified learning gaps or areas needing development.",
+            "examples": [["deterioration recognition", "EWS escalation protocol"]]
+          },
+          "strengths": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "Identified strengths or areas of good practice.",
+            "examples": [["communication", "dignity promotion", "person-centred care"]]
+          }
+        }
+      }
+    },
+    "assessor_preferences": {
+      "type": "object",
+      "description": "Optional trust-specific or assessor-specific preferences stored for consistency across sessions.",
+      "properties": {
+        "trust_name": {
+          "type": "string",
+          "description": "The NHS Trust or organisation name."
+        },
+        "custom_verifier_notes": {
+          "type": "string",
+          "description": "Any trust-specific additions to the standard 10-point verifier."
+        },
+        "preferred_phrasing": {
+          "type": "string",
+          "description": "Preferred language style or phrasing standards for outputs."
+        }
+      }
+    }
+  }
+}
