@@ -16,7 +16,7 @@
 
 <br/>
 
-<img src="docs/framework/Nursing-LOOPS-infographic-v2.jpg" alt="Practice Loops for Nursing — Level 3 Agent Architecture: the six-stage practice loop, lifecycle events (on_intake through on_commit), human sign-off, and what a loop needs including memory on disk, context curation, and governance analytics" width="820">
+<img src="docs/framework/Nursing-LOOPS-infographic-v3.svg" alt="Practice Loops for Nursing: the one-shot prompt on the left, the six pillars as a cycle in the centre (trigger, task, standard, verification, iteration, sign-off, with a dashed return showing the next run begins only after sign-off), and human accountability on the right. Below, the five lifecycle phases from on_intake to on_commit with on_gate1 and on_gate2 marked STOP, and the components a loop needs: memory read and written, context curation, a separate verifier, the NMC standard, a stop condition, an audit trail, and governance analytics." width="880">
 
 </div>
 

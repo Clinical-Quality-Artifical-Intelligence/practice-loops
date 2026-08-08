@@ -134,6 +134,14 @@ Append to `./practice-loop-audit/YYYY-MM-DD-<loop>.md`:
 - Loop & version: <loop> v<plugin version>
 - Input provenance: anonymised? [yes/no] · IG reference: <if any>
 - Boundaries declared: <what AI must not decide>
+- Memory (step 1.5): pseudonym [none | <pseudonym>] · prior entries recalled: <n> · gaps carried forward: <list | none>
+
+## Gate 1 — diagnostic reasoning review (step 3.5)
+- Presented at: <ISO8601>
+- Reasoning presented: <categorisation · proficiencies mapped · fact vs inference>
+- Registrant response: [confirmed | corrected | rejected]
+- Correction made: <none | what the registrant changed>
+- Confirmed by: ____________________   Date: __________
 
 ## Verification scores
 | Round | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | Min |
@@ -143,6 +151,11 @@ Append to `./practice-loop-audit/YYYY-MM-DD-<loop>.md`:
 ## Escalations / flags
 - <none | description + recommended human action>
 
-## Status
+## Gate 2 — accountable final sign-off
 DRAFT — pending human sign-off by: ____________________   Date: __________
 ```
+
+Both gates are logged, not just the final one. `ADPIE-DUAL-GATE-GOVERNANCE.md` requires the audit
+file to record the Gate 1 confirmation alongside the Gate 2 sign-off: an audit trail that shows
+only the final signature cannot evidence that a registrant validated the reasoning *before* the
+plan was drafted, which is the whole point of the mid-loop gate.

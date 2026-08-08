@@ -12,6 +12,14 @@ Column legend (matches the 10-point verifier): 1 Concern · 2 Evidence/opinion �
 - Loop & version: placement-support v0.1.0
 - Input provenance: anonymised? [yes/no] · IG reference: <if any>
 - Boundaries declared: no progression/pass-fail, FtP, capability, or employment decision
+- Memory (step 1.5): pseudonym [none | <pseudonym>] · prior entries recalled: <n> · gaps carried forward: <list | none>
+
+## Gate 1 — diagnostic reasoning review (step 3.5)
+- Presented at: <ISO8601>
+- Reasoning presented: <categorisation of each concern (learning/conduct) · proficiencies mapped · fact vs inference>
+- Registrant response: [confirmed | corrected | rejected]
+- Correction made: <none | what the registrant changed>
+- Confirmed by: ____________________ (practice assessor)   Date: __________
 
 ## Verification scores
 | Round | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | Min |
@@ -22,6 +30,6 @@ Column legend (matches the 10-point verifier): 1 Concern · 2 Evidence/opinion �
 ## Escalations / flags
 - <none | description + recommended human action>
 
-## Status
+## Gate 2 — accountable final sign-off
 DRAFT — pending human sign-off by: ____________________ (practice/academic assessor)   Date: __________
 ```

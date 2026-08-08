@@ -38,7 +38,27 @@ Single-session drafting and longitudinal tracking of a named individual are diff
 >
 > - No real names, DOB, NHS numbers, or addresses.
 > - Use only the pseudonym provided by the nurse (e.g. "student-alpha", "preceptee-B").
-> - Memory JSON files are excluded from GitHub via `.gitignore` — they exist locally only, like audit logs.
+> - Memory JSON files are excluded from GitHub via `.gitignore`, so they are never committed or published.
+
+> ⚠️ **`.gitignore` governs git and nothing else.** It does not stop a cloud client from
+> syncing these files. If your working directory sits inside **OneDrive, SharePoint, Dropbox,
+> Google Drive, or a redirected Documents folder**, `practice-loop-memory/` will sync to that
+> account — which on a Windows estate is the common case, not the exception. Check where the
+> repository actually lives before enabling memory:
+>
+> ```
+> practice-loop-memory/  ->  C:\Users\<you>\OneDrive\Documents\...   # syncing to the cloud
+> practice-loop-memory/  ->  C:\dev\practice-loops\...               # local only
+> ```
+>
+> Site memory outside any synced folder, on encrypted storage, and treat the files as personal
+> data wherever they live.
+
+## Before enabling this for real learners
+
+A DPIA template is provided at [`docs/safety/dpia-cross-session-memory.md`](../docs/safety/dpia-cross-session-memory.md), pre-populated from the software's actual behaviour. It records **seven HIGH risks**, four of which cannot be mitigated by the software alone — lawful basis, storage location, retention, and data subject rights are organisational decisions.
+
+Memory is opt-in for a reason: if no pseudonym is given, steps 1.5 and 10 are skipped and every other governance property of the loop is retained. **Running statelessly is the correct default until that DPIA is completed and signed off.**
 
 ## File Convention
 

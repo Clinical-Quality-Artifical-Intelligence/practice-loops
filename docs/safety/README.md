@@ -5,6 +5,7 @@ This folder holds the clinical safety evidence for the `practice-loops` plugin, 
 
 - [`clinical-safety-case.md`](clinical-safety-case.md) — the Clinical Safety Case Report.
 - [`hazard-log.md`](hazard-log.md) — the FMEA-style hazard log with the NHS risk matrix.
+- [`dpia-cross-session-memory.md`](dpia-cross-session-memory.md) — UK GDPR Art. 35 DPIA **template** for the opt-in cross-session learner memory feature. Records seven HIGH risks; four require organisational decisions the software cannot make. **Memory should stay disabled until it is completed.**
 
 > ⚠️ **These are manufacturer drafts.** They are not a completed safety case until a named,
 > suitably qualified **Clinical Safety Officer** has reviewed them, agreed the hazard log, and
