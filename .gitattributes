@@ -1,0 +1,27 @@
+# Line-ending policy.
+#
+# Every commit was emitting "LF will be replaced by CRLF" warnings because there was
+# no policy here, leaving normalisation to each contributor's core.autocrlf setting.
+# A contributor with autocrlf=false commits CRLF and produces a whole-file diff on a
+# file nobody meaningfully changed.
+#
+# text=auto eol=lf stores LF in the index AND checks out LF, regardless of local
+# config or platform. LF in the working tree also matters because CI runs on Linux:
+# a Python or shell script checked out with CRLF line endings fails there on the
+# shebang. The project now supports Windows contributors explicitly, so this needs
+# to be settled by the repo, not by each machine.
+* text=auto eol=lf
+
+# Binary assets: never diff, never normalise line endings.
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.gif   binary
+*.ico   binary
+*.pdf   binary
+*.docx  binary
+*.pptx  binary
+*.xlsx  binary
+
+# SVG is XML, so it stays text and benefits from real diffs.
+*.svg   text eol=lf

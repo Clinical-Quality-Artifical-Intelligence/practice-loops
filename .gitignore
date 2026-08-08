@@ -5,7 +5,11 @@ practice-loop-audit/
 practice-loop-memory/*.json
 !practice-loop-memory/schema.json
 
-# Large source decks & tools — kept locally, excluded from published repo
+# Word documents and PDFs are kept locally, not published. docs/framework/ ships a
+# Markdown twin of every guide, so the .docx were redundant duplicates of published
+# content. Note this rule does not retroactively untrack anything already committed —
+# the four .docx it was meant to cover stayed public until they were git rm --cached.
+# Practice-Loops-for-Nursing-Deck.pptx IS deliberately tracked: it has no Markdown twin.
 docs/framework/*.pdf
 *.docx
 
