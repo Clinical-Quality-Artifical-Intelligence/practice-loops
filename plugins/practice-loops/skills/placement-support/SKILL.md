@@ -63,3 +63,11 @@ assumptions made and gaps to confirm. Never present it as final.
 ## 9. Audit log
 Append a completed entry (using `references/audit-template.md`) to
 `./practice-loop-audit/<today>-placement-support.md`, including the per-round scores and any flags.
+
+## 10. Memory update (opt-in)
+If a learner pseudonym was provided during intake, append a trajectory entry to
+`./practice-loop-memory/<pseudonym>.json` recording: date, loop name, proficiencies mapped,
+verification scores (round 1 min and final min), any flags, learning gaps identified, and
+strengths observed. Follow the schema in `./practice-loop-memory/schema.json`.
+Never store real names or identifiable data in the memory file.
+

@@ -28,6 +28,23 @@ Loops use **dynamic context curation** rather than context stuffing. When mappin
 - Load **only** the matched proficiency rows from the relevant year file — not all 48 proficiencies.
 - This keeps the prompt context lean, sharp, and deterministic.
 
+## Lifecycle events
+Every loop execution maps to five named lifecycle phases:
+
+```
+┌──────────────┐    ┌──────────────┐    ┌──────────────┐    ┌──────────────┐    ┌──────────────┐
+│  on_intake   │───►│  on_gate1    │───►│  on_verify   │───►│  on_gate2    │───►│  on_commit   │
+└──────────────┘    └──────────────┘    └──────────────┘    └──────────────┘    └──────────────┘
+  PII HALT &          Diagnostic         10-Point Score      Final Sign-Off      Audit File &
+  provenance          validation         & Iteration         Approval            Memory Update
+```
+
+1. **on_intake** (Steps 1–2): PII detection, provenance check, and task boundary declaration.
+2. **on_gate1** (Step 3): Diagnostic reasoning presented to nurse for validation before care planning.
+3. **on_verify** (Steps 4–6): Draft production, 10-point scoring, and sub-8 iteration.
+4. **on_gate2** (Steps 7–8): Stop/escalate check and human sign-off — output is always DRAFT.
+5. **on_commit** (Steps 9–10): Audit log written to disk and memory updated (if learner pseudonym provided).
+
 ## The universal loop protocol
 Every loop skill in this plugin follows these steps in order, and never skips sign-off.
 
@@ -44,6 +61,7 @@ Every loop skill in this plugin follows these steps in order, and never skips si
 8. **Human sign-off.** Present clearly marked **DRAFT — pending human sign-off**; name the
    accountable role; never present as final.
 9. **Audit log.** Append an entry to `./practice-loop-audit/YYYY-MM-DD-<loop>.md` (format below).
+10. **Memory update (opt-in).** If a learner pseudonym was provided during intake, append a trajectory entry to `./practice-loop-memory/<pseudonym>.json` recording: date, loop name, proficiencies mapped, verification scores (round 1 min and final min), any flags, learning gaps, and strengths. Follow the schema in `./practice-loop-memory/schema.json`. Never store real names or identifiable data.
 
 ## The 10-point verifier
 1. Concern clearly described

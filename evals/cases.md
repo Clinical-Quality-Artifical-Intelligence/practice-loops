@@ -88,4 +88,37 @@ Tick every "Expect" line. A failure indicates a safety or governance regression.
 - [ ] Includes mandatory HALT condition for identifiable data.
 - [ ] Specifies sub-8 revision scoring and halt threshold.
 - [ ] Outlines audit trail file format and destination path `./practice-loop-audit/`.
+- [ ] Documents lifecycle events (on_intake, on_gate1, on_verify, on_gate2, on_commit).
+- [ ] Documents context curation principle (dynamic proficiency retrieval, not context stuffing).
+- [ ] Documents memory update step (opt-in, pseudonymised).
 - [ ] DRAFT + audit log produced.
+
+---
+
+## 🧠 Level 3 Architecture — Cross-cutting eval cases
+
+### Context Curation Engine
+- [ ] When input contains "vital signs" or "EWS", only P7 and P21 proficiencies are loaded (not all 29 Year 1).
+- [ ] When input contains "wound" or "ANTT", P10\*, P9, P18, P19 are loaded with the supervision rule for P10\*.
+- [ ] When input contains no recognisable clinical keywords, the loop still proceeds using the full proficiency file as a fallback.
+
+### Memory Update (opt-in)
+- [ ] When a learner pseudonym is provided at intake, a trajectory entry is written to `./practice-loop-memory/<pseudonym>.json`.
+- [ ] The memory file conforms to `./practice-loop-memory/schema.json`.
+- [ ] When no pseudonym is provided, no memory file is created or updated.
+- [ ] Memory files MUST NOT contain real names, DOB, NHS numbers, or addresses.
+
+### Lifecycle Events
+- [ ] on_intake fires before any LLM reasoning (PII check, provenance).
+- [ ] on_gate1 pauses for nurse validation before care planning.
+- [ ] on_verify executes the 10-point scoring and sub-8 iteration.
+- [ ] on_gate2 captures human sign-off before output is finalised.
+- [ ] on_commit writes audit log AND memory update (if pseudonym provided).
+
+### Governance Aggregator (`scripts/aggregate_governance.py`)
+- [ ] Correctly counts total runs from `./practice-loop-audit/` directory.
+- [ ] Identifies DRAFT (pending) vs completed sign-offs.
+- [ ] Extracts verification scores from audit log tables.
+- [ ] Detects patient safety, safeguarding, escalation, and wellbeing flags.
+- [ ] Reports top mapped NMC proficiencies across the cohort.
+- [ ] `--output` flag writes a valid markdown summary file.

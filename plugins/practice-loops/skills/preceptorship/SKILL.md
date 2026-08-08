@@ -50,3 +50,11 @@ Present clearly marked **DRAFT — pending human sign-off** by the preceptor; ad
 ## 9. Audit log
 Append a completed entry (audit format in the `practice-loop-method` skill) to
 `./practice-loop-audit/<today>-preceptorship.md`, including per-round scores and any flags.
+
+## 10. Memory update (opt-in)
+If a learner pseudonym was provided during intake, append a trajectory entry to
+`./practice-loop-memory/<pseudonym>.json` recording: date, loop name, proficiencies mapped,
+verification scores (round 1 min and final min), any flags, learning gaps identified, and
+strengths observed. Follow the schema in `./practice-loop-memory/schema.json`.
+Never store real names or identifiable data in the memory file.
+

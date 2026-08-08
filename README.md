@@ -81,14 +81,18 @@ Every loop ends with a **human sign-off step**. Claude cannot complete a loop wi
 
 ---
 
-## 🏗️ How It Works: Dual-Gate Architecture
+## 🏗️ How It Works: Dual-Gate Architecture & Lifecycle Events
 
 ```
+┌──────────────┐    ┌──────────────┐    ┌──────────────┐    ┌──────────────┐    ┌──────────────┐
+│  on_intake   │───►│  on_gate1    │───►│  on_verify   │───►│  on_gate2    │───►│  on_commit   │
+└──────────────┘    └──────────────┘    └──────────────┘    └──────────────┘    └──────────────┘
+
 Trigger          ← Assess: you provide raw notes / context
    ↓
 Task & Diagnosis ← 🛑 GATE 1: Nurse validates problem identification & reasoning
    ↓
-Standard         ← Plan: loop anchors to NMC Standards of Proficiency database
+Standard         ← Plan: loop anchors to NMC proficiency index (context curation)
    ↓
 Verification     ← Evaluate: Claude scores itself /10; retries if < 8
    ↓
@@ -97,6 +101,8 @@ Iteration        ← Adjust: Claude self-corrects up to 3 times
 Human Sign-Off   ← 🛑 GATE 2: YOU review and approve final draft
    ↓
 Audit Trail      ← Full record committed to disk
+   ↓
+Memory Update    ← Opt-in: learner trajectory saved to practice-loop-memory/
 ```
 
 ---
@@ -136,7 +142,9 @@ plugins/
   practice-loops/
     skills/              One folder per loop (12 loops)
     hooks/               Pre/post loop hooks
-scripts/                 Developer utilities
+practice-loop-memory/    Persistent learner trajectory memory (local, .gitignored JSON)
+practice-loop-audit/     Audit trail logs (local, .gitignored)
+scripts/                 Developer utilities & governance aggregator
 ```
 
 ---
