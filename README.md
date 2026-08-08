@@ -107,6 +107,21 @@ Memory Update    ← Opt-in: learner trajectory saved to practice-loop-memory/
 
 ---
 
+## 🧠 Level 3 Agent Architecture (Memory, Curation & Governance)
+
+Practice Loops implements a **Level 3 Agent Architecture** (stateless LLM reasoning + persistent state harness & analytics), incorporating three core technical capabilities:
+
+1. 💾 **Stateful Learner Memory (`practice-loop-memory/`)**  
+   Tracks pseudonymised preceptee/student development trajectories across sessions (e.g. comparing Month 1 vs Month 3 proficiency progress). Memory is opt-in and stored locally in `.gitignored` JSON files conforming to [`schema.json`](practice-loop-memory/schema.json).
+
+2. ⚡ **Context Curation Engine (`index.json`)**  
+   Uses a machine-readable 12-cluster keyword index ([`index.json`](plugins/practice-loops/skills/placement-support/references/proficiencies/index.json)) to dynamically pull *only* the relevant NMC proficiencies into context, preventing LLM token waste and hallucination.
+
+3. 📊 **Cohort Governance Aggregator (`scripts/aggregate_governance.py`)**  
+   Parses audit logs in `./practice-loop-audit/` to generate high-level ward and trust quality signals: Gate 2 human sign-off compliance rates, average 10-point verifier scores, safety/escalation flag counts, and top mapped proficiency trends across the cohort.
+
+---
+
 ## 📚 NMC Proficiency Database & Assessment Methods
 
 Practice Loops features an embedded **NMC (2018) Standards of Proficiency Reference Database** ([`plugins/practice-loops/skills/placement-support/references/proficiencies/`](plugins/practice-loops/skills/placement-support/references/proficiencies/)) derived from the *NMC Future Nurse Proficiencies*.
