@@ -24,11 +24,11 @@
 
 ## What is a Practice Loop™?
 
-A **Practice Loop™** is a repeatable, AI-supported nursing workflow with a *job, a standard, and a stopping rule*. Instead of one-off prompting, each loop drives Claude through six pillars —
+A **Practice Loop™** is a repeatable, AI-supported clinical workflow with a *job, a standard, a stopping rule, and persistent memory*. Instead of one-off prompting, each loop drives the AI assistant through six pillars across five lifecycle phases —
 
 > **Trigger → Task → Standard → Verification → Iteration → Human Sign-Off**
 
-— printing a 10-point verification score, self-correcting anything below 8/10, halting on risk, and writing an **audit trail** to disk.
+— dynamically retrieving matched NMC standards (**context curation**), printing a 10-point verification score, self-correcting anything below 8/10, halting on clinical risk, writing a timestamped **audit trail** to disk, and logging **stateful learner memory**.
 
 > **AI supports the workflow; the registered professional owns the judgement.**
 
