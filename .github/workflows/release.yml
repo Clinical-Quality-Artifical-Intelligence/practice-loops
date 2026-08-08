@@ -14,26 +14,30 @@ jobs:
       packages: write
 
     steps:
+      # Actions are pinned to full commit SHAs, not mutable tags. This job holds
+      # contents: write and packages: write, so a repointed tag on a third-party
+      # action would run unreviewed code with publish rights.
+      # Dependabot (.github/dependabot.yml) keeps these pins moving forward.
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
 
       - name: Setup Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
         with:
           python-version: "3.x"
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
           node-version: "20.x"
           registry-url: "https://npm.pkg.github.com"
           scope: "@clinical-quality-artifical-intelligence"
 
       - name: Run Plugin Structure Validation
-        run: python3 scripts/validate.py
+        run: python scripts/validate.py
 
       - name: Run Static Guardrail Evals
-        run: python3 scripts/check_guardrails.py
+        run: python scripts/check_guardrails.py
 
       - name: Build Plugin Zip Bundle
         run: |
@@ -41,7 +45,7 @@ jobs:
           zip -r dist/practice-loops-plugin.zip plugins/ .claude-plugin/ docs/ README.md LICENSE
 
       - name: Create GitHub Release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@3bb12739c298aeb8a4eeaf626c5b8d85266b0e65 # v2
         with:
           files: dist/practice-loops-plugin.zip
           name: Release ${{ github.ref_name }}
