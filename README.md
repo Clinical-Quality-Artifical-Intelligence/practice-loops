@@ -36,6 +36,15 @@ It maps directly onto the evidence-based nursing process you already use: **Asse
 
 See our scientific foundation document: **[ADPIE Dual-Gate Governance Architecture](docs/framework/ADPIE-DUAL-GATE-GOVERNANCE.md)**.
 
+### 🧬 Clinical Derivation: Where Practice Loops™ Come From
+
+The concept of a **Practice Loop™** derives from four foundational clinical and educational frameworks in nursing:
+
+1. **The Nursing Process (ADPIE)** — Clinical care is inherently cyclic: *Assess → Diagnose → Plan → Intervene → Evaluate → Adjust*. A Practice Loop operationalises this exact clinical decision-making cycle within AI-assisted workflows.
+2. **Experiential Learning & Reflective Practice (Kolb / Gibbs / ERA)** — Nursing education and NMC revalidation depend on structured reflection (*Experience → Reflection → Conceptualisation → Action Plan*). Practice Loops scaffold this reflective cycle for preceptees, students, and practitioners.
+3. **Closed-Loop Clinical Governance (PDSA / Audit Cycle)** — In patient safety, "closing the loop" means taking audit findings or near-miss reflections and ensuring actions are tracked, implemented, and re-evaluated to improve quality.
+4. **Human-in-the-Loop Clinical AI Scaffolding** — Unlike one-shot AI prompts that lack boundary controls, Practice Loops enforce **Dual-Gate Human Governance** (Gate 1 validates diagnostic reasoning; Gate 2 signs off final output), ensuring the registered nurse retains clinical accountability at every stage.
+
 ---
 
 ## 🔁 The Loops
