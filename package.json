@@ -4,7 +4,7 @@
   "description": "Safe, governed AI practice loops for nursing mapped to NMC standards.",
   "main": "plugins/practice-loops/.claude-plugin/plugin.json",
   "scripts": {
-    "validate": "python3 scripts/validate.py && python3 scripts/check_guardrails.py",
+    "validate": "python scripts/validate.py && python scripts/check_guardrails.py && python scripts/check_manifests.py",
     "test": "npm run validate"
   },
   "repository": {
@@ -23,7 +23,7 @@
     "ai-safety"
   ],
   "author": "Clinical Quality Artificial Intelligence",
-  "license": "PolyForm-Noncommercial-1.0.0",
+  "license": "SEE LICENSE IN LICENSE",
   "bugs": {
     "url": "https://github.com/Clinical-Quality-Artifical-Intelligence/practice-loops/issues"
   },
@@ -39,7 +39,6 @@
     "evals/",
     "examples/",
     "SECURITY.md",
-    "ADPIE-DUAL-GATE-GOVERNANCE.md",
     "LICENSE",
     "README.md"
   ]
