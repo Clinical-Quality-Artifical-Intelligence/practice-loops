@@ -12,11 +12,15 @@ This is not a pilot. It is not waiting for approval. It is happening now, on per
 
 The question is no longer whether nurses will use AI. It is whether the way they use it can survive contact with professional accountability.
 
+The conversation about vibe coding is arriving in nursing now, and that is a good thing — the more clinicians who realise they can build, the better. But the interesting question has already moved on. Once you have built something that works, the next problem is not how to build faster. It is how to know whether what you built is safe enough to point at a real student on a real ward. That is the question this piece is about.
+
 ## First, some credit where it is due
 
 "Vibe coding" — building by conversation, iterating by feel, shipping without a computer science degree — did something the NHS digital programme never managed. It put the means of building software into the hands of the people who actually understand the work.
 
 I am a nurse. I build tools. I could not have done that ten years ago. The barrier was never clinical insight; it was the cost of turning insight into working software. Vibe coding collapsed that cost, and the profession should be honest about how much it gained.
+
+**Practice Loops was itself vibe coded.** Every loop in it started as a conversation with a model, iterated by feel, shipped before it was tidy. I am not describing this technique from the outside. I used it, got further with it than I expected, and then hit the wall it has — which is the only reason I can tell you precisely where that wall is.
 
 So this is not an argument that exploratory prompting is bad. It is an argument that it is **the wrong instrument for one specific class of work** — and that class happens to include most of what nursing documentation actually is.
 
