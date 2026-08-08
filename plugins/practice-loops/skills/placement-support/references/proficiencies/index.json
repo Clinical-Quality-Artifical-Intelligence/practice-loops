@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Practice Loop Proficiency Curation Index",
+  "description": "Maps clinical keyword clusters to specific NMC proficiency numbers and valid assessment methods. Used for dynamic context curation — load only the proficiency rows relevant to the input keywords, not all 48.",
+  "version": "1.0.0",
+  "nmc_standard": "NMC 2018 Standards of Proficiency for Registered Nurses",
+  "categories": {
+    "deterioration_vital_signs": {
+      "keywords": ["vital signs", "blood pressure", "pulse", "saturation", "temperature", "EWS", "NEWS", "deterioration", "sepsis", "respiratory", "oxygen", "tachycardia", "hypotension"],
+      "proficiencies": ["P7", "P21"],
+      "assessment_methods": ["Direct Observation", "Discussion", "Simulation"],
+      "guidance": "Always check local EWS escalation policy. Flag unacted-on deterioration as a patient safety concern."
+    },
+    "medicines_administration": {
+      "keywords": ["medicine", "medication", "drug", "IV", "injection", "dose", "pharmacology", "prescription", "insulin", "controlled drug", "analgesia", "PGD"],
+      "proficiencies": ["P8*", "P22", "P23"],
+      "assessment_methods": ["Direct Observation", "Simulation"],
+      "supervision_rule": "P8* requires continuous direct supervision for invasive administration routes.",
+      "guidance": "Map to 5 Rights of Medicine Administration. Flag any near-miss or error for incident reflection."
+    },
+    "wound_care_ANTT": {
+      "keywords": ["wound", "dressing", "ANTT", "aseptic", "infection", "suture", "clip", "drain", "skin", "pressure sore", "tissue viability", "Waterlow", "Braden"],
+      "proficiencies": ["P10*", "P9", "P18", "P19"],
+      "assessment_methods": ["Direct Observation", "Simulation"],
+      "supervision_rule": "P10* requires continuous direct supervision for aseptic technique.",
+      "guidance": "Use body mapping and validated risk tools (Waterlow/Braden). Link to IPC competencies."
+    },
+    "communication_dignity": {
+      "keywords": ["communication", "dignity", "privacy", "empathy", "dementia", "anxiety", "de-escalation", "consent", "advocacy", "person-centred", "therapeutic", "confidentiality"],
+      "proficiencies": ["P2", "P4", "P5", "P6", "P9"],
+      "assessment_methods": ["Direct Observation", "Discussion", "Feedback"],
+      "guidance": "Assess across the lifespan. Adapt for cognitive impairment, sensory loss, and communication barriers."
+    },
+    "end_of_life_palliative": {
+      "keywords": ["end of life", "palliative", "bereavement", "DNACPR", "ACP", "advance care plan", "dying", "last offices", "syringe driver"],
+      "proficiencies": ["P4*"],
+      "assessment_methods": ["Discussion", "Simulation", "Spoke Placement"],
+      "supervision_rule": "P4* requires continuous direct supervision due to emotional and clinical complexity.",
+      "guidance": "Consider spoke placement for specialist palliative care exposure. Always involve MDT."
+    },
+    "nutrition_hydration_continence": {
+      "keywords": ["MUST", "nutrition", "diet", "BMI", "fluid balance", "dehydration", "catheter", "toileting", "continence", "dysphagia", "choking", "NG tube", "NGT", "feeding"],
+      "proficiencies": ["P11", "P12", "P12*", "P13", "P14", "P15"],
+      "assessment_methods": ["Direct Observation", "Discussion", "Simulation"],
+      "supervision_rule": "P12* (NGT insertion) requires continuous direct supervision.",
+      "guidance": "Use validated tools (MUST, fluid balance charts). Flag choking/aspiration risk."
+    },
+    "mobility_falls": {
+      "keywords": ["mobility", "falls", "moving and handling", "hoist", "wheelchair", "walking frame", "deconditioning", "frailty", "balance"],
+      "proficiencies": ["P16", "P17"],
+      "assessment_methods": ["Direct Observation", "Discussion", "Simulation"],
+      "guidance": "Complete falls risk assessment. Check equipment safety. Link to frailty frameworks."
+    },
+    "infection_control_PPE": {
+      "keywords": ["infection control", "PPE", "hand hygiene", "hand washing", "sharps", "waste", "laundry", "IPC", "AMR", "MRSA", "C. diff", "isolation"],
+      "proficiencies": ["P18", "P19", "P20"],
+      "assessment_methods": ["Direct Observation"],
+      "guidance": "P18 (hand hygiene) is Direct Observation only. Link to 5 Moments for Hand Hygiene."
+    },
+    "mental_health_self_harm": {
+      "keywords": ["mental health", "self-harm", "suicide", "anxiety", "depression", "psychosis", "de-escalation", "restraint", "DASA", "aggression", "safety plan"],
+      "proficiencies": ["P3*", "P5", "P6", "P24"],
+      "assessment_methods": ["Direct Observation", "Discussion", "Simulation"],
+      "supervision_rule": "P3* requires continuous direct supervision for self-harm risk assessment.",
+      "guidance": "Use validated risk assessment tools (DASA, suicide risk). Document safety plans."
+    },
+    "documentation_handover": {
+      "keywords": ["handover", "documentation", "record keeping", "SBAR", "notes", "nursing notes", "digital", "care plan", "discharge"],
+      "proficiencies": ["P29"],
+      "assessment_methods": ["Direct Observation", "Discussion"],
+      "guidance": "Assess verbal and written handover accuracy. Check info governance compliance."
+    },
+    "risk_assessment_safety": {
+      "keywords": ["risk assessment", "health and safety", "hazard", "incident", "near miss", "Datix", "safeguarding", "abuse", "neglect"],
+      "proficiencies": ["P24", "P25"],
+      "assessment_methods": ["Direct Observation", "Discussion", "Simulation"],
+      "guidance": "Link to local incident reporting procedures. Distinguish safeguarding from clinical risk."
+    },
+    "interprofessional_MDT": {
+      "keywords": ["MDT", "interprofessional", "multi-agency", "referral", "discharge planning", "transfer", "community", "social care"],
+      "proficiencies": ["P26", "P27", "P28"],
+      "assessment_methods": ["Direct Observation", "Discussion", "Spoke Placement"],
+      "guidance": "Evidence through MDT meeting participation, referral pathways, and discharge coordination."
+    }
+  }
+}

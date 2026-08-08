@@ -27,11 +27,15 @@ Draft a SMART action plan that:
 You MUST NOT: decide progression or pass/fail; make any fitness-to-practise, capability,
 employment, or disciplinary decision; invent facts (mark gaps "to confirm with student/assessor").
 
-## 2.5 Proficiency mapping
-Read `references/proficiencies/year-<N>-proficiencies.md` (based on the student's programme year, defaulting to Year 1 if unspecified) and `references/proficiencies/assessment-methods.md`. For each concern or learning need:
-- Map it to the specific NMC proficiency number(s) (e.g. `P7`, `P18`, `P21`).
+## 2.5 Proficiency mapping (context curation)
+First, read `references/proficiencies/index.json` and scan the input notes for matching keyword clusters.
+Load **only** the matched proficiency rows from `references/proficiencies/year-<N>-proficiencies.md` (based on the student's programme year, defaulting to Year 1 if unspecified) and the relevant assessment methods from `references/proficiencies/assessment-methods.md`. Do **not** load all proficiencies into context — pull only what the input keywords match.
+
+For each concern or learning need:
+- Map it to the specific NMC proficiency number(s) (e.g. `P7`, `P18`, `P21`) using the index.
 - Note the valid assessment method(s) (e.g. Direct Observation, Simulation, Discussion).
 - Flag any proficiencies marked with `*` as requiring perpetual direct supervision.
+- Include any `guidance` notes from the index entry.
 
 ## 3. Standard
 Read and apply `references/nmc-standard.md`.

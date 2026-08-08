@@ -22,6 +22,12 @@ stopping rule. **AI supports the workflow; the registered professional owns the 
 
 Maps to the nursing process: Assess → Plan → Intervene → Evaluate → Adjust.
 
+## Context curation principle
+Loops use **dynamic context curation** rather than context stuffing. When mapping to NMC proficiencies:
+- Scan the input for clinical keyword clusters (via `references/proficiencies/index.json`).
+- Load **only** the matched proficiency rows from the relevant year file — not all 48 proficiencies.
+- This keeps the prompt context lean, sharp, and deterministic.
+
 ## The universal loop protocol
 Every loop skill in this plugin follows these steps in order, and never skips sign-off.
 
