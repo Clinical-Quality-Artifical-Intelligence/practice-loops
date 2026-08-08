@@ -28,7 +28,7 @@ A **Practice Loop™** is a repeatable, AI-supported clinical workflow with a *j
 
 > **Trigger → Task → Standard → Verification → Iteration → Human Sign-Off**
 
-— dynamically retrieving matched NMC standards (**context curation**), printing a 10-point verification score, self-correcting anything below 8/10, halting on clinical risk, writing a timestamped **audit trail** to disk, and logging **stateful learner memory**.
+— recalling the subject's prior trajectory before it reasons (opt-in, pseudonymised), dynamically retrieving matched NMC standards (**context curation**), pausing for the nurse to validate its reasoning before it drafts anything, printing a 10-point verification score, self-correcting anything below 8/10, halting on clinical risk, writing a timestamped **audit trail** to disk, and appending to **stateful learner memory**.
 
 > **AI supports the workflow; the registered professional owns the judgement.**
 
@@ -98,17 +98,18 @@ Every loop execution flows through **five lifecycle phases** and **two human gov
 ╔══════════════╗    ╔══════════════╗    ╔══════════════╗    ╔══════════════╗    ╔══════════════╗
 ║  on_intake   ║───►║  on_gate1    ║───►║  on_verify   ║───►║  on_gate2    ║───►║  on_commit   ║
 ╚══════════════╝    ╚══════════════╝    ╚══════════════╝    ╚══════════════╝    ╚══════════════╝
- PII check &         🛑 GATE 1          Score /10 &          🛑 GATE 2          Audit log &
- task boundaries     Nurse validates     iterate < 8          Nurse approves      memory update
-                     reasoning                                DRAFT output        (opt-in)
+ PII check, recall   🛑 GATE 1          Score /10 &          🛑 GATE 2          Audit log &
+ & task boundaries   Nurse validates     iterate < 8          Nurse approves      memory update
+                     reasoning (STOP)                         DRAFT output        (opt-in)
 ```
 
 | Step | What Happens | Lifecycle Phase | ADPIE Stage |
 |:---:|---|:---:|:---:|
-| **1. Trigger** | Nurse initiates — **HALT** if identifiable data detected | `on_intake` | Assess |
+| **1. Trigger** | Nurse initiates — **HALT** if identifiable data detected; cross-session memory offered (pseudonym only) | `on_intake` | Assess |
+| **1.5 Recall** | If a pseudonym was given, prior trajectory read **before reasoning** — open gaps, previous flags, score trend (opt-in) | `on_intake` | Assess |
 | **2. Task** | Bounded job declared; "must NOT decide" boundaries set | `on_intake` | Assess |
 | **3. Standard** | NMC proficiency index lookup (context curation — loads only matched proficiencies) | `on_gate1` | Diagnosis |
-| | 🛑 **GATE 1** — Nurse validates problem identification & diagnostic reasoning | | |
+| **3.5 Gate 1** | 🛑 Reasoning presented — categorisation, mapped proficiencies, fact vs inference. **The loop stops until the nurse confirms or corrects it** | `on_gate1` | Diagnosis |
 | **4. Draft** | Output produced (action plan, reflection, review, etc.) | `on_verify` | Plan / Intervene |
 | **5. Verify** | 10-point verifier scores printed, weaknesses named | `on_verify` | Evaluate |
 | **6. Iterate** | Sub-8 scores revised and re-scored (max 3 rounds) | `on_verify` | Adjust |
@@ -122,18 +123,31 @@ Every loop execution flows through **five lifecycle phases** and **two human gov
 
 ---
 
-## 🧠 Level 3 Agent Architecture (Memory, Curation & Governance)
+## 🧠 Agent Architecture (Memory, Curation & Governance)
 
-Practice Loops implements a **Level 3 Agent Architecture** (stateless LLM reasoning + persistent state harness & analytics), incorporating three core technical capabilities:
+Practice Loops pairs stateless model reasoning with a persistent state harness and governance
+analytics, built on four capabilities:
 
 1. 💾 **Stateful Learner Memory (`practice-loop-memory/`)**  
-   Tracks pseudonymised preceptee/student development trajectories across sessions (e.g. comparing Month 1 vs Month 3 proficiency progress). Memory is opt-in and stored locally in `.gitignored` JSON files conforming to [`schema.json`](practice-loop-memory/schema.json).
+   Tracks pseudonymised preceptee/student development trajectories across sessions (e.g. comparing Month 1 vs Month 3 proficiency progress). Memory is a **read/write pair** — recalled at step 1.5 before the assistant reasons, appended at step 10 after it acts — and CI fails any loop that implements one half without the other. Opt-in, stored locally in `.gitignored` JSON files conforming to [`schema.json`](practice-loop-memory/schema.json).
 
 2. ⚡ **Context Curation Engine (`index.json`)**  
    Uses a machine-readable 12-cluster keyword index ([`index.json`](plugins/practice-loops/skills/placement-support/references/proficiencies/index.json)) to dynamically pull *only* the relevant NMC proficiencies into context, preventing LLM token waste and hallucination.
 
 3. 📊 **Cohort Governance Aggregator (`scripts/aggregate_governance.py`)**  
    Parses audit logs in `./practice-loop-audit/` to generate high-level ward and trust quality signals: Gate 2 human sign-off compliance rates, average 10-point verifier scores, safety/escalation flag counts, and top mapped proficiency trends across the cohort.
+
+4. 🔒 **Programmatic vs Agent-Triggered Boundary**  
+   Every safety-relevant operation — recalling history, loading the standard, presenting Gate 1, scoring, writing the audit entry — runs *programmatically*, whether or not the assistant judges it necessary. Only genuinely discretionary steps (expanding a recalled entry, pulling an extra proficiency cluster, escalating under step 7) are left to the model. The full boundary table is in the [`practice-loop-method`](plugins/practice-loops/skills/practice-loop-method/SKILL.md) skill. A loop that could choose to skip its own escalation history would not be a governed loop.
+
+### Where this sits in the agent-loop levels
+
+These loops draw on the three-level framing in Oracle's [The Agent Loop Decoded](https://blogs.oracle.com/developers/the-agent-loop-decoded-three-levels-every-agent-engineer-must-know). Stated precisely:
+
+- **Level 2 — implemented in full.** Memory is read before the model reasons and written after it acts, and the loop manages that state deliberately rather than having memory happen to it.
+- **Level 3 — partial.** The programmatic/agent-triggered boundary and dynamic context curation are in place. Conversation compaction, tool-output offloading, and context-window monitoring are not, because Practice Loops are short single-purpose runs where those pressures do not yet arise.
+
+Vector stores, embeddings, and a database-backed memory engine are deliberately **not** used. Loops are Markdown skills over stdlib-only Python with zero dependencies — which is what keeps them reviewable by a clinical governance team and deployable inside an NHS trust.
 
 ---
 

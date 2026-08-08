@@ -20,6 +20,10 @@ docs/framework/*.pdf
 .DS_Store
 ._*
 
+# Python bytecode (scripts/ is importable, so running or importing them writes this)
+__pycache__/
+*.py[cod]
+
 # Editor / tooling
 *.swp
 .idea/

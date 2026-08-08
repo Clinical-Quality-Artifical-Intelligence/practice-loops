@@ -18,8 +18,11 @@ METHOD = "practice-loop-method"
 
 # Section numbers every loop SKILL.md must define, as `## <n>. <title>`.
 # 2.5 (proficiency mapping) is intentionally absent: its title varies per loop.
-# 10 (memory update) is intentionally absent: it is opt-in per loop.
-REQUIRED_SECTIONS = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+# 10 (memory update) is intentionally absent: it is opt-in per loop, and is instead
+# enforced for read/write symmetry by check_memory_symmetry() below.
+# 3.5 (Gate 1) IS required: human validation of the reasoning before drafting is a
+# governance property of every loop, not an optional extra.
+REQUIRED_SECTIONS = ["1", "2", "3", "3.5", "4", "5", "6", "7", "8", "9"]
 
 # (section number, label, regex) — the regex must match within THAT section's body.
 REQUIRED = [
@@ -36,6 +39,9 @@ REQUIRED = [
     ("8", "DRAFT output",              r"DRAFT"),
     ("8", "human sign-off",            r"(?i)sign[- ]?off"),
     ("9", "audit log path",            r"practice-loop-audit"),
+    # Gate 1 must actually halt. A section that merely describes the reasoning without
+    # pausing for the registrant is the failure this check exists to catch.
+    ("3.5", "Gate 1 stop condition",   r"(?i)\bstop\b|wait for the nurse|do not proceed"),
 ]
 
 HEADING = re.compile(r"^##\s+(.*?)\s*$", re.M)
@@ -55,17 +61,50 @@ def split_sections(text):
     return sections
 
 
+def check_memory_symmetry(sections):
+    """Memory read (1.5) and memory write (10) are two halves of one mechanism.
+
+    A loop that writes a trajectory but never reads it accumulates a record nobody
+    benefits from, and silently fails the cross-session promise it advertises. Rather
+    than force every loop to carry memory, require that whichever half exists brings
+    the other with it.
+    """
+    has_read = "1.5" in sections and re.search(r"practice-loop-memory", sections["1.5"])
+    has_write = "10" in sections and re.search(r"practice-loop-memory", sections["10"])
+    problems = []
+    if has_write and not has_read:
+        problems.append(
+            "writes memory in section 10 but never reads it: section 1.5 must read "
+            "./practice-loop-memory/<pseudonym>.json before reasoning")
+    if has_read and not has_write:
+        problems.append(
+            "reads memory in section 1.5 but never writes it: section 10 must append a "
+            "trajectory entry")
+    if (has_read or has_write) and not re.search(r"(?i)pseudonym", sections.get("1", "")):
+        problems.append(
+            "uses memory but section 1 never asks for a pseudonym, so the memory "
+            "condition can never be satisfied")
+    return problems
+
+
 def check_loop(name, text):
-    """Return a list of human-readable problems for one loop skill."""
+    """Return a list of human-readable problems for one loop skill.
+
+    Reports every class of problem in one pass rather than returning at the first.
+    A missing section and a broken memory contract are independently useful to know
+    about, and stopping early hides the second behind the first.
+    """
     sections = split_sections(text)
-    missing_sections = [s for s in REQUIRED_SECTIONS if s not in sections]
-    if missing_sections:
-        return [f"missing required section(s): {missing_sections}"]
-    return [
+    problems = [
+        f"missing required section: {s}" for s in REQUIRED_SECTIONS if s not in sections
+    ]
+    problems += [
         f"section {sec} missing {label}"
         for sec, label, pattern in REQUIRED
-        if not re.search(pattern, sections[sec])
+        # sections absent entirely are already reported above; don't double-report
+        if sec in sections and not re.search(pattern, sections[sec])
     ]
+    return problems + check_memory_symmetry(sections)
 
 
 def main():
