@@ -20,6 +20,13 @@ docs/framework/*.pdf
 .DS_Store
 ._*
 
+# Articles and blog drafts are kept locally, not published from this repository.
+# The build tooling (scripts/build_article.py, scripts/render_terminal_svg.py,
+# scripts/rasterise_svg.py) stays tracked and still works — point it at any Markdown
+# file under docs/blog/ locally. Note this rule did not remove the article from git
+# HISTORY; earlier commits still contain it.
+docs/blog/
+
 # Build output: the release workflow's plugin zip and Pandoc's article .docx.
 # The Markdown source is the artefact of record; built documents are disposable.
 dist/
