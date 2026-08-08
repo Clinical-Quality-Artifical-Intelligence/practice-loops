@@ -35,24 +35,39 @@ Every loop execution maps to five named lifecycle phases:
 ┌──────────────┐    ┌──────────────┐    ┌──────────────┐    ┌──────────────┐    ┌──────────────┐
 │  on_intake   │───►│  on_gate1    │───►│  on_verify   │───►│  on_gate2    │───►│  on_commit   │
 └──────────────┘    └──────────────┘    └──────────────┘    └──────────────┘    └──────────────┘
-  PII HALT &          Diagnostic         10-Point Score      Final Sign-Off      Audit File &
-  provenance          validation         & Iteration         Approval            Memory Update
+  PII HALT, recall    Diagnostic         10-Point Score      Final Sign-Off      Audit File &
+  & provenance        validation (STOP)  & Iteration         Approval            Memory Update
 ```
 
-1. **on_intake** (Steps 1–2): PII detection, provenance check, and task boundary declaration.
-2. **on_gate1** (Step 3): Diagnostic reasoning presented to nurse for validation before care planning.
+1. **on_intake** (Steps 1–1.5): PII detection, provenance check, and — if a pseudonym was given
+   — recall of the prior trajectory before any reasoning begins.
+2. **on_gate1** (Steps 2–3.5): Bounded task and boundaries declared, standard and matched
+   proficiencies loaded, then diagnostic reasoning presented to the nurse. **The loop stops
+   here until the nurse confirms or corrects it** — nothing is drafted before that.
 3. **on_verify** (Steps 4–6): Draft production, 10-point scoring, and sub-8 iteration.
 4. **on_gate2** (Steps 7–8): Stop/escalate check and human sign-off — output is always DRAFT.
-5. **on_commit** (Steps 9–10): Audit log written to disk and memory updated (if learner pseudonym provided).
+5. **on_commit** (Steps 9–10): Audit log written to disk and memory updated (if a pseudonym was
+   provided at intake).
 
 ## The universal loop protocol
 Every loop skill in this plugin follows these steps in order, and never skips sign-off.
 
 1. **Intake / Trigger.** Confirm a manual start and ask for the input. **HALT** if the content
    looks like identifiable patient/staff data (names, DOB, NHS number, addresses) unless the
-   user confirms it is anonymised / IG-approved.
+   user confirms it is anonymised / IG-approved. Then offer cross-session memory and, if the
+   nurse wants it, take a **pseudonym** — never a real name or identifier.
+1.5. **Recall (opt-in).** If a pseudonym was given, read
+   `./practice-loop-memory/<pseudonym>.json` **before reasoning** and surface open learning
+   gaps, prior flags, the score trend, and any `assessor_preferences`. Recalled content is
+   prior context **to be confirmed, not established fact**. A gap that recurs across sessions
+   is a pattern to escalate, not an action to repeat.
 2. **Task.** Restate the bounded task and the "must NOT decide" boundaries.
 3. **Standard.** Load the loop's `references/nmc-standard.md`.
+3.5. **Gate 1 — nurse validates the reasoning (STOP).** Present problem identification and
+   diagnostic reasoning — how each concern is categorised, the mapped proficiencies, fact
+   versus inference, and anything carried in from recall — then **wait for the nurse to confirm
+   or correct it before drafting**. This is a stop condition: categorisation is a registrant's
+   judgement and it changes the entire output.
 4. **Draft.** Produce the output.
 5. **Verify.** Score against the 10 points below, **printing each score out of 10** and naming weaknesses.
 6. **Iterate.** If any point is below 8, revise the weakest part, explain the change, re-score. Max 3 rounds.
@@ -61,7 +76,33 @@ Every loop skill in this plugin follows these steps in order, and never skips si
 8. **Human sign-off.** Present clearly marked **DRAFT — pending human sign-off**; name the
    accountable role; never present as final.
 9. **Audit log.** Append an entry to `./practice-loop-audit/YYYY-MM-DD-<loop>.md` (format below).
-10. **Memory update (opt-in).** If a learner pseudonym was provided during intake, append a trajectory entry to `./practice-loop-memory/<pseudonym>.json` recording: date, loop name, proficiencies mapped, verification scores (round 1 min and final min), any flags, learning gaps, and strengths. Follow the schema in `./practice-loop-memory/schema.json`. Never store real names or identifiable data.
+10. **Memory update (opt-in).** If a pseudonym was provided at intake, append a trajectory entry to `./practice-loop-memory/<pseudonym>.json` recording: date, loop name, proficiencies mapped, verification scores (round 1 min and final min), any flags, learning gaps, and strengths. Follow the schema in `./practice-loop-memory/schema.json`. Never store real names or identifiable data.
+
+Steps 1.5 and 10 are the two halves of one mechanism. A loop that writes memory but never reads
+it accumulates a record nobody benefits from; a loop that reads without writing cannot improve.
+If a loop implements one, it must implement the other.
+
+## Programmatic vs agent-triggered operations
+Not every operation should be the assistant's choice, and the boundary is deliberate. Two
+failure modes sit either side of it: load too much automatically and the context bloats; leave
+too much to the assistant's discretion and safety-relevant context goes missing.
+
+| Operation | Programmatic | Agent-triggered | Why |
+|---|:---:|:---:|---|
+| Recall prior trajectory (1.5) | Yes | No | A loop must never decide whether to look at its own history |
+| Load matched proficiencies (2.5) | Yes | No | The standard is not optional |
+| Load the loop's `nmc-standard.md` (3) | Yes | No | As above |
+| Present Gate 1 reasoning (3.5) | Yes | No | The nurse's judgement is not an optimisation to trade away |
+| Score against the verifier (5) | Yes | No | Verification cannot be skipped |
+| Write the audit entry (9) | Yes | No | Governance evidence, not a convenience |
+| Write the memory entry (10) | Yes | No | Automatic once a pseudonym exists |
+| Expand a recalled entry in full | No | Yes | Only when the recalled summary is insufficient |
+| Load an additional proficiency cluster | No | Yes | Only when the input reveals a theme the keywords missed |
+| Escalate under step 7 | No | Yes | Requires judgement about what was actually observed |
+
+Everything in the first group runs whether or not the assistant judges it necessary. That is a
+**safety** property rather than an efficiency one: a loop that could choose to skip its own
+escalation history is not a governed loop.
 
 ## The 10-point verifier
 1. Concern clearly described
